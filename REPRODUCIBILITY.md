@@ -117,7 +117,7 @@ What is exact and what is estimated: given a partition, the reduced graph, the p
 
 ## 8. What was verified, and how closely results reproduce
 
-The results in `results/` come from `./reproduce.sh` run on a fresh machine from a clean clone of this repository (commit `2abb2ab`; later commits change only documentation, the quick-check memory default and the final results check). The quick check `./reproduce.sh smoke` was also run to completion on the same fresh machine.
+The results in `results/` come from `./reproduce.sh` run on a fresh machine from a clean clone of this repository (commit `2abb2ab`; later commits change only documentation, the quick-check memory default, the final results check and the width of three generated tables). The quick check `./reproduce.sh smoke` was also run to completion on the same fresh machine.
 
 Before that, the same experiments had been run once on another machine of the same type, with the attribute tables prepared on a laptop. Comparing the two independent runs over all 87 method-and-configuration combinations of the three data sets:
 

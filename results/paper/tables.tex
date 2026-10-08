@@ -123,7 +123,7 @@ $K$ & 256 & 9.9 & 0.0220 & 0.873 (0.005) & 0.136 & 0.405 \\
 \label{tab:noise}
 \centering
 \footnotesize
-\begin{tabular}{@{}rrrrrr@{}}
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}rrrrrr@{}}
 \toprule
  & \multicolumn{2}{c}{Weight on noise} & \multicolumn{3}{c}{AUC (standard deviation)} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-6}
@@ -134,7 +134,7 @@ Noise attributes & $s=0$ & $s=1$ & ZRL, $s=0$ & ZRL, $s=1$ & Boosting \\
 30 & 0.50 & 0.15 & 0.859 (0.006) & 0.870 (0.004) & 0.919 (0.003) \\
 60 & 0.67 & 0.21 & 0.855 (0.007) & 0.869 (0.004) & 0.919 (0.003) \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} Uniform random attributes are appended to the 30 real ones. Weight on noise is the total zeta weight that falls on the random attributes.}
 \end{table}
 
@@ -164,7 +164,7 @@ Random partition & 0.852 & 0.123 & 0.401 & -0.012 (.006) \\
 \label{tab:scale}
 \centering
 \footnotesize
-\begin{tabular}{@{}rrrrrrr@{}}
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}rrrrrrr@{}}
 \toprule
  & & \multicolumn{3}{c}{Time (s)} & \multicolumn{2}{c}{Memory (GB)} \\
 \cmidrule(lr){3-5} \cmidrule(lr){6-7}
@@ -179,7 +179,7 @@ Accounts & Edges & Total (sd) & Refine & Summary & Peak & Dense $W$ \\
 1,000,000 & $5.00\times10^{11}$ & 277 (1.9) & 211 & 58 & 15.7 & 4,000 \\
 2,077,023 & $2.16\times10^{12}$ & 473 (2.8) & 342 & 119 & 16.9 & 17,256 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} 30 attributes, $K=64$, 512 landmarks, 8 threads. Each size is run 2 times, each in a fresh process on an otherwise idle machine, so peak memory belongs to that run alone. Total includes sorting, refinement, the exact summary and the sampled checks. Dense $W$ is the memory the graph would need in single precision. The fitted log--log slope of total time against accounts is 0.83.}
 \end{table}
 

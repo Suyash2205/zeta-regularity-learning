@@ -377,7 +377,8 @@ def fit_width(block, label, width):
     return block.replace("\\begin{tabular}", "\\resizebox{" + width + "}{!}{\\begin{tabular}").replace("\\end{tabular}", "\\end{tabular}}")
 
 
-tex = [fit_width(fit_width(b, "tab:main", "\\textwidth"), "tab:ablation", "\\columnwidth") for b in tex]
+for label, width in (("tab:main", "\\textwidth"), ("tab:ablation", "\\columnwidth"), ("tab:noise", "\\columnwidth"), ("tab:scale", "\\columnwidth")):
+    tex = [fit_width(b, label, width) for b in tex]
 tex.sort(key=lambda block: next((i for i, lab in enumerate(ORDER) if "\\label{" + lab + "}" in block), len(ORDER)))
 (out / "tables.tex").write_text("\n\n".join(tex) + "\n")
 json.dump(summary, open(out / "summary.json", "w"), indent=1)
