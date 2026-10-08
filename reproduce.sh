@@ -58,14 +58,14 @@ prepare HI-Small_Trans.csv hi
 prepare LI-Small_Trans.csv li
 prepare HI-Medium_Trans.csv hm
 
-# The three cross-validation experiments run side by side.
+# The three cross-validation experiments and the noise test run side by side.
 $RUN zrl/experiment_scale.py data/hi_accounts.parquet results/results_hi full 3 5 > logs/hi.log 2>&1 &
 $RUN zrl/experiment_scale.py data/li_accounts.parquet results/results_li main 3 4 > logs/li.log 2>&1 &
 $RUN zrl/experiment_scale.py data/hm_accounts.parquet results/results_hm main 1 4 > logs/hm.log 2>&1 &
+ZRL_THREADS=3 $RUN zrl/extras.py data/hi_accounts.parquet results/results_extra noise > logs/noise.log 2>&1 &
 wait
-# Noise test, then the scalability timings alone on the machine.
-ZRL_THREADS=8 $RUN zrl/extras.py data/hi_accounts.parquet results/results_extra noise > logs/noise.log 2>&1
-ZRL_THREADS=8 $RUN zrl/extras.py data/hm_accounts.parquet results/results_extra scale > logs/scale.log 2>&1
+# Scalability timings run last, alone on the machine, each size twice in a fresh process.
+ZRL_THREADS=8 ZRL_SCALE_REPEATS="${ZRL_SCALE_REPEATS:-2}" $RUN zrl/extras.py data/hm_accounts.parquet results/results_extra scale > logs/scale.log 2>&1
 $RUN zrl/report.py results results/paper > logs/report.log 2>&1
 
 # Checksums of every result table, for comparison with results/EXPECTED_HASHES.txt
