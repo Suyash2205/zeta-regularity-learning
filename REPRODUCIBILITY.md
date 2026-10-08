@@ -1,0 +1,114 @@
+# Reproducibility details
+
+Everything here describes the code as it is in this repository. No hyperparameter was tuned on the data; every value below was set once.
+
+## 1. Software and hardware
+
+| | Full runs | Laptop timing quoted in the paper |
+|---|---|---|
+| Machine | Google Cloud `e2-highmem-16`: 16 virtual CPUs, 128 GB RAM, no GPU | Apple-silicon MacBook, 8 GB RAM |
+| OS | Debian GNU/Linux 12 | macOS |
+| Python | 3.11.2 | 3.11.6 |
+| Packages | numpy 2.4.6, scipy 1.17.1, polars 2.0.0, scikit-learn 1.9.1, matplotlib 3.11.2 | same |
+| BLAS | OpenBLAS bundled with the numpy wheel, `OPENBLAS_NUM_THREADS=3` per experiment | Accelerate/OpenBLAS default |
+
+## 2. Random seeds
+
+| Source of randomness | Where | Seed |
+|---|---|---|
+| Ranking set (stratified 20% of accounts) | `train_test_split(test_size=0.2, stratify=y, random_state=0)` | 0 |
+| Cross-validation folds | `StratifiedKFold(5, shuffle=True, random_state=rep)`, `rep = 0, 1, 2` | 0, 1, 2 |
+| Landmark accounts (512), stratified regularity sample, random pairs for the RMSE | one `numpy.random.default_rng(seed)` per fit, used in that order | 0 |
+| Power iteration in the regularity check | same generator, standard-normal start vector, 25 iterations | 0 |
+| k-means partition | `MiniBatchKMeans(64, n_init=3, batch_size=8192, random_state=0)` | 0 |
+| Random equal-sized partition | `default_rng(0).permutation(n) % 64` | 0 |
+| Gradient boosting | `HistGradientBoostingClassifier(max_iter=200, random_state=fold)` | fold index 0–4 |
+| Isolation forest | `IsolationForest(n_estimators=200, random_state=fold)`, fitted on 100,000 training accounts drawn with `default_rng(fold)` | fold index 0–4 |
+| Noise attributes | `default_rng(1)`: uniform random columns and the 100,000-account sample | 1 |
+| Scalability subsamples | `default_rng(rep)`, `rep = 0, 1, 2` | 0, 1, 2 |
+
+Fold assignments of every account are saved in `results/results_*/folds.npz` (`fold_of[rep, account]`; −1 marks the ranking set; accounts are in sorted order of the account identifier).
+
+## 3. Evaluation protocol
+
+1. A stratified 20% of the accounts forms the **ranking set**. Its labels fix the order of the attributes (mutual information).
+2. The other 80% is split into five stratified folds.
+3. The similarity graph, the partition, the reduced graph and the profiles are computed on **all** accounts and use **no** labels.
+4. Every supervised model (the profile classifier, class risk, logistic regression, gradient boosting) is trained on **four folds plus the ranking set** and scored on the fifth fold. The ranking-set labels are therefore used twice, for the attribute order and as training data, and are never part of a test fold.
+5. Steps 2–4 are repeated with three different fold seeds on HI-Small and LI-Small (15 test folds) and once on HI-Medium (5 test folds). Sweeps and ablations use the five folds of the first repeat.
+
+Paired differences use the corrected resampled t-test: `t = mean(d) / sqrt((1/J + 0.25) * var(d))` with `J` test folds and `J − 1` degrees of freedom. The factor 0.25 is the test/train ratio of plain five-fold cross-validation; with the ranking set added to training the true ratio is 0.19, so the test as run is slightly conservative.
+
+## 4. Attributes (30 per account)
+
+Account identifier: bank code and account number joined by an underscore. `S` is the set of transactions the account sends, `R` the set it receives. Sent-side attributes of an account with no sent transactions are 0, and likewise for the received side.
+
+**Behavioural (24), from `zrl/build_features.py`**
+
+| Attribute | Definition |
+|---|---|
+| `n_out`, `n_in` | number of transactions in `S`, in `R` |
+| `out_ratio` | `n_out / (n_out + n_in)` |
+| `out_partners`, `in_partners` | distinct receivers in `S`; distinct senders in `R` |
+| `repeat_out` | `n_out / max(out_partners, 1)` |
+| `out_amt_mean`, `out_amt_std`, `out_amt_max` | mean, sample standard deviation (0 for one transaction) and maximum over `S` of `z`, where `z = (log(1 + amount paid) − mean) / sd` and mean and sd are taken over all transactions in the same payment currency |
+| `in_amt_mean`, `in_amt_std` | mean and sample standard deviation of `z` over `R` |
+| `cross_bank_share` | share of `S` whose sending and receiving banks differ |
+| `cross_cur_share` | share of `S` whose receiving currency differs from the payment currency |
+| `self_share` | share of `S` in which sender and receiver are the same account |
+| `night_share` | share of `S` with hour before 06:00 or from 22:00 |
+| `n_currencies` | distinct payment currencies in `S` |
+| `active_days` | distinct calendar dates in `S` |
+| `share_ach`, `share_cheque`, `share_credit_card`, `share_wire`, `share_cash`, `share_bitcoin`, `share_reinvestment` | share of `S` in each payment format |
+
+**Structural (6), from `zrl/structural.py`**
+
+The payment graph has one directed, unweighted edge for every distinct (sender, receiver) pair with sender ≠ receiver; repeated payments and amounts are ignored. Its adjacency matrix is `A`. The undirected graph `U` has an edge wherever `A` has one in either direction; `D` is its degree matrix.
+
+| Attribute | Definition |
+|---|---|
+| `degree` | degree in `U` (number of distinct partners) |
+| `partner_degree` | sum of the degrees of the account's neighbours in `U`, divided by `max(degree, 1)` |
+| `reciprocity` | number of accounts `v` with both `u → v` and `v → u`, divided by `max(out-degree, 1)` |
+| `pagerank_in` | PageRank on `A`: damping 0.85, uniform start, 60 power iterations, mass of accounts without out-edges spread uniformly |
+| `pagerank_out` | the same on the reversed graph |
+| `nbt_centrality` | solution `x` of `(I − tU + t²(D − I)) x = (1 − t²) 1`. The spectral radius `ρ` of the non-backtracking matrix is the largest-magnitude eigenvalue of the companion matrix `[[U, I − D], [I, 0]]`, computed with ARPACK (`scipy.sparse.linalg.eigs`, tolerance 1e-4, at most 500 iterations); `t = 0.5 / ρ`; the system is solved by conjugate gradients with relative tolerance 1e-10 |
+
+**Scaling.** Every attribute is replaced by `(r − 1) / (n − 1)`, where `r` is its average rank (`scipy.stats.rankdata(method="average")`), so tied values share one rank.
+
+## 5. The model
+
+| Step | Exact procedure |
+|---|---|
+| Relevance, with labels | Mutual information between the label and the scaled rank cut into 20 equal-width bins; plug-in estimate, natural logarithm, no smoothing, empty cells skipped; a constant attribute scores 0. Computed on the ranking set only |
+| Relevance, without labels | Raw attribute min–max scaled, 20-bin histogram, `1 + Σ p ln p / ln 20` with empty bins skipped |
+| Order | Stable sort by decreasing relevance |
+| Weights | `w_k = (k − 1 + q)^(−s) / Σ_j (j − 1 + q)^(−s)`; main configuration `s = 1`, `q = 1` |
+| Graph | `W_uv = Σ_k w_k (1 − |x_uk − x_vk|)` for `u ≠ v`, `W_uu = 0` |
+| Landmarks | 512 accounts drawn once, uniformly without replacement, reused in every round |
+| Refinement round | For each class `V_a`: form the block of `W` with rows `V_a` and landmark columns; subtract, for each class `c` of the landmarks, the mean of the sub-block (rows `V_a`, landmarks in class `c`); take the leading left singular vector from the eigen-decomposition of the Gram matrix (`numpy.linalg.eigh`, no iteration); put accounts strictly above the median in one half. If a half is empty, accounts are split alternately. To bound memory, a class with more than `6e8 / (4 L)` accounts uses only the first `⌊6e8 / (4 |V_a|)⌋` landmarks (this affects the first one or two rounds on large data) |
+| Rounds | 6, giving `K = 64` classes |
+| Reduced graph | `R_ab = (Σ_{u∈V_a, v∈V_b} W_uv) / (|V_a| |V_b|)` for `a ≠ b`, and divided by `|V_a| (|V_a| − 1)` for `a = b`; exact |
+| Profile | `p_ub = (Σ_{v∈V_b} W_uv) / (|V_b| − [u ∈ V_b])`; exact |
+| Deviation | `δ_u = sqrt(Σ_b (|V_b| / n) (p_ub − R_{c(u) b})²)` |
+| Regularity check | 100 accounts per class drawn without replacement; for every pair of classes the sample block is centred on its mean, its leading singular vectors are found by 25 power iterations, and the four pairs of subsets given by the signs of the two vectors are tested, each subset needing at least an `ε` share of its class in the sample; the pair is irregular if any tested pair of subsets has a density more than `ε = 0.05` from the block density |
+| RMSE | 2,000,000 ordered pairs `u ≠ v` drawn uniformly; root mean square of `W_uv − R_{c(u) c(v)}` |
+
+What is exact and what is estimated: given a partition, the reduced graph, the profiles, the deviations and the index are exact. The partition itself is heuristic (split directions come from landmark columns), and the share of irregular pairs and the RMSE are estimated from samples.
+
+## 6. Comparison methods
+
+| Method | Settings |
+|---|---|
+| Profile classifier | `StandardScaler` then `LogisticRegression(C=1.0, class_weight="balanced", solver="newton-cholesky", max_iter=200)` on the 64 profile values and the deviation |
+| Class risk | `(laundering training accounts in class + overall training rate) / (training accounts in class + 1)` |
+| Logistic regression | the same pipeline on the 30 scaled attributes |
+| Gradient boosting | `HistGradientBoostingClassifier(max_iter=200, random_state=fold)`, all other settings at scikit-learn defaults (learning rate 0.1, 31 leaves, early stopping on a 10% validation split because the training set exceeds 10,000 rows) |
+| Isolation forest | see Section 2; score is the negated `score_samples` |
+| k-means partition | see Section 2, on the attributes multiplied by `sqrt(w)` |
+
+## 7. Result files
+
+`results/results_hi`, `results_li`, `results_hm` each hold `scores.csv` (one row per method, repeat and fold, with AUC, AP and recall at 1%, 5% and 10%), `structure.csv` (partition statistics per fit), `folds.npz`, `meta.json` and `full_fit.npz` (reduced graph, weights, class sizes and class means). `predictions_rep0.npz` holds the held-out scores of the three main methods for the first repeat (HI-Small and LI-Small). `results/results_extra` holds `noise.csv` and `scalability.csv`. `results/logs` holds the run logs, and `results/HASHES.txt` the SHA-256 of every result table.
+
+Exact agreement of the hashes requires the same package versions and thread settings; on other platforms floating-point sums may differ in the last digits.
