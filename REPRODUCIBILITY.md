@@ -113,4 +113,20 @@ What is exact and what is estimated: given a partition, the reduced graph, the p
 
 `results/results_hi`, `results_li`, `results_hm` each hold `scores.csv` (one row per method, repeat and fold, with AUC, AP and recall at 1%, 5% and 10%), `structure.csv` (partition statistics per fit), `folds.npz`, `meta.json` and `full_fit.npz` (reduced graph, weights, class sizes and class means). `predictions_rep0.npz` holds the held-out scores of the three main methods for the first repeat (HI-Small and LI-Small). `results/results_extra` holds `noise.csv` and `scalability.csv`. `results/logs` holds the run logs, and `results/HASHES.txt` the SHA-256 of every result table.
 
-Exact agreement of the hashes requires the same package versions and thread settings; on other platforms floating-point sums may differ in the last digits.
+`results/paper` holds the generated tables (`tables.tex`), figures and `summary.json`.
+
+## 8. What was verified, and how closely results reproduce
+
+The results in `results/` come from `./reproduce.sh` run on a fresh machine from a clean clone of this repository (commit `2abb2ab`; later commits change only documentation, the quick-check memory default and the final results check). The quick check `./reproduce.sh smoke` was also run to completion on the same fresh machine.
+
+Before that, the same experiments had been run once on another machine of the same type, with the attribute tables prepared on a laptop. Comparing the two independent runs over all 87 method-and-configuration combinations of the three data sets:
+
+| | Largest difference in mean AUC |
+|---|---|
+| All 87 configurations | 0.0052 (k-means class risk, HI-Small) |
+| ZRL profile classifier, main configuration | 0.0001 (HI-Small), 0.0003 (LI-Small), 0.0001 (HI-Medium) |
+| Attribute-only models (logistic regression, gradient boosting) | 0.0002 |
+
+The runs are **not bit-identical**. Single fold-level AUC values differ by up to 0.015. Known causes: (i) the attribute tables are built with multithreaded aggregations whose floating-point sums can differ in the last digits, which changes ranks among near-ties; (ii) the start vector of the Arnoldi iteration for the spectral radius is not seeded (the radius itself agreed to four digits: 17.07, 18.56 and 26.78 for HI-Small, LI-Small and HI-Medium); (iii) median splits amplify last-digit differences, because an account at the median can fall on either side; (iv) mini-batch k-means is sensitive to the same perturbations. For this reason `reproduce.sh` ends by comparing means with `results/EXPECTED_MEANS.csv` within a tolerance of 0.01 (`zrl/check_results.py`), and reports bit-identical hashes when they occur.
+
+Scalability timings (`results/results_extra/scalability.csv`) were measured after all experiments had finished, each run in a fresh process, twice per size.

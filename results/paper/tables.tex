@@ -1,0 +1,202 @@
+\begin{table}[t]
+\caption{Quality of 64-class summaries of the zeta-weighted graph}
+\label{tab:structure}
+\centering
+\footnotesize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Data & Partition & RMSE & Irreg. & Index \\
+\midrule
+HI-Small & Regularity (ZRL) & 0.0315 & 0.060 & 0.5560 \\
+HI-Small & $k$-means & 0.0294 & 0.034 & 0.5561 \\
+HI-Small & Random & 0.1206 & 1.000 & 0.5424 \\
+\addlinespace
+LI-Small & Regularity (ZRL) & 0.0333 & 0.086 & 0.5103 \\
+LI-Small & $k$-means & 0.0318 & 0.026 & 0.5104 \\
+LI-Small & Random & 0.1340 & 1.000 & 0.4935 \\
+\addlinespace
+HI-Medium & Regularity (ZRL) & 0.0291 & 0.062 & 0.6472 \\
+HI-Medium & $k$-means & 0.0195 & 0.002 & 0.6476 \\
+HI-Medium & Random & 0.0889 & 0.887 & 0.6401 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} RMSE = root-mean-square error of replacing each edge weight by its class-pair density, estimated on two million random pairs; the bound of Proposition~\ref{prop:existence} for $r=6$ is 1.283. Irreg.\ = share of class pairs found irregular at $\varepsilon=0.05$ on a stratified sample. Index = size-weighted mean of squared class-pair densities.}
+\end{table}
+
+\begin{table*}[t]
+\caption{Detection of laundering accounts on held-out accounts (mean over folds, standard deviation in parentheses)}
+\label{tab:main}
+\centering
+\footnotesize
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}lcccccccccccc@{}}
+\toprule
+ & \multicolumn{4}{c}{HI-Small} & \multicolumn{4}{c}{LI-Small} & \multicolumn{4}{c}{HI-Medium} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9} \cmidrule(lr){10-13}
+Method & AUC & AP & R@1\% & R@5\% & AUC & AP & R@1\% & R@5\% & AUC & AP & R@1\% & R@5\% \\
+\midrule
+Gradient boosting, all attributes & 0.922 (0.003) & 0.327 & 0.296 & 0.551 & 0.911 (0.004) & 0.108 & 0.167 & 0.497 & 0.925 (0.001) & 0.424 & 0.314 & 0.525 \\
+Gradient boosting, behavioural attributes & 0.896 (0.003) & 0.313 & 0.278 & 0.510 & 0.876 (0.004) & 0.103 & 0.159 & 0.445 & 0.901 (0.002) & 0.384 & 0.287 & 0.489 \\
+Logistic regression, all attributes & 0.863 (0.002) & 0.139 & 0.181 & 0.406 & 0.846 (0.004) & 0.047 & 0.122 & 0.347 & 0.862 (0.004) & 0.200 & 0.175 & 0.394 \\
+\addlinespace
+ZRL profiles (zeta weights, regularity partition) & 0.864 (0.003) & 0.120 & 0.165 & 0.414 & 0.855 (0.004) & 0.042 & 0.095 & 0.326 & 0.864 (0.002) & 0.175 & 0.155 & 0.391 \\
+ZRL profiles, equal weights & 0.867 (0.003) & 0.104 & 0.143 & 0.409 & 0.859 (0.005) & 0.046 & 0.106 & 0.347 & 0.863 (0.003) & 0.159 & 0.125 & 0.396 \\
+Profiles on a $k$-means partition & 0.869 (0.004) & 0.129 & 0.191 & 0.416 & 0.857 (0.006) & 0.044 & 0.104 & 0.329 & 0.866 (0.002) & 0.202 & 0.185 & 0.398 \\
+Profiles on a random partition & 0.852 (0.003) & 0.121 & 0.169 & 0.401 & 0.831 (0.006) & 0.036 & 0.085 & 0.289 & 0.840 (0.006) & 0.183 & 0.164 & 0.374 \\
+\addlinespace
+ZRL class risk & 0.815 (0.003) & 0.052 & 0.071 & 0.300 & 0.801 (0.004) & 0.024 & 0.047 & 0.212 & 0.826 (0.002) & 0.102 & 0.102 & 0.328 \\
+$k$-means class risk & 0.845 (0.003) & 0.088 & 0.173 & 0.361 & 0.829 (0.004) & 0.031 & 0.079 & 0.271 & 0.843 (0.003) & 0.169 & 0.184 & 0.359 \\
+\addlinespace
+ZRL deviation (no labels) & 0.706 (0.007) & 0.032 & 0.059 & 0.155 & 0.683 (0.005) & 0.012 & 0.010 & 0.076 & 0.707 (0.002) & 0.045 & 0.024 & 0.161 \\
+Isolation forest (no labels) & 0.761 (0.012) & 0.040 & 0.058 & 0.215 & 0.750 (0.011) & 0.020 & 0.044 & 0.175 & 0.756 (0.011) & 0.061 & 0.055 & 0.201 \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\parbox{0.98\textwidth}{\footnotesize \emph{Note.} AUC = area under the ROC curve; AP = average precision; R@1\% and R@5\% = share of the held-out laundering accounts found among the 1\% and 5\% highest-scored held-out accounts. Profiles are scored by a logistic regression on the 64-class profile and the deviation; class risk scores an account by the laundering rate of its class among training accounts.}
+\end{table*}
+
+\begin{table}[t]
+\caption{Paired comparisons with ZRL profiles (AUC), corrected resampled $t$-test}
+\label{tab:sig}
+\centering
+\footnotesize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Data & Compared method & Diff. & Wins & $p$ \\
+\midrule
+HI-Small & Gradient boosting & -0.057 & 0/15 & $<.001$ \\
+HI-Small & Gradient boosting (behav.) & -0.031 & 0/15 & $<.001$ \\
+HI-Small & Logistic regression & +0.002 & 12/15 & .111 \\
+HI-Small & ZRL profiles, equal weights & -0.003 & 0/15 & .012 \\
+HI-Small & Profiles on a $k$-means partition & -0.004 & 0/15 & $<.001$ \\
+HI-Small & Profiles on a random partition & +0.012 & 15/15 & $<.001$ \\
+\addlinespace
+LI-Small & Gradient boosting & -0.057 & 0/15 & $<.001$ \\
+LI-Small & Gradient boosting (behav.) & -0.021 & 0/15 & $<.001$ \\
+LI-Small & Logistic regression & +0.009 & 15/15 & $<.001$ \\
+LI-Small & ZRL profiles, equal weights & -0.004 & 0/15 & .010 \\
+LI-Small & Profiles on a $k$-means partition & -0.002 & 2/15 & .135 \\
+LI-Small & Profiles on a random partition & +0.024 & 15/15 & $<.001$ \\
+\addlinespace
+HI-Medium & Gradient boosting & -0.061 & 0/5 & $<.001$ \\
+HI-Medium & Gradient boosting (behav.) & -0.038 & 0/5 & $<.001$ \\
+HI-Medium & Logistic regression & +0.001 & 4/5 & .212 \\
+HI-Medium & ZRL profiles, equal weights & +0.001 & 4/5 & .154 \\
+HI-Medium & Profiles on a $k$-means partition & -0.002 & 0/5 & .027 \\
+HI-Medium & Profiles on a random partition & +0.024 & 5/5 & .001 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} Diff.\ is the AUC of ZRL profiles minus that of the compared method; Wins counts the folds in which ZRL profiles are ahead.}
+\end{table}
+
+\begin{table}[t]
+\caption{Sensitivity of ZRL to its parameters (HI-Small, five folds)}
+\label{tab:sens}
+\centering
+\footnotesize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Parameter & Value & $N_{\mathrm{eff}}$ & RMSE & AUC & AP & R@5\% \\
+\midrule
+$s$ & 0 & 30.0 & 0.0319 & 0.867 (0.004) & 0.103 & 0.408 \\
+$s$ & 0.5 & 23.0 & 0.0301 & 0.868 (0.003) & 0.123 & 0.399 \\
+$s$ & 1 & 9.9 & 0.0315 & 0.864 (0.004) & 0.121 & 0.413 \\
+$s$ & 1.5 & 4.2 & 0.0287 & 0.861 (0.002) & 0.118 & 0.406 \\
+$s$ & 2 & 2.4 & 0.0270 & 0.853 (0.002) & 0.113 & 0.395 \\
+$s$ & 3 & 1.4 & 0.0219 & 0.828 (0.004) & 0.083 & 0.354 \\
+\addlinespace
+$q$ & 2 & 14.9 & 0.0304 & 0.868 (0.004) & 0.118 & 0.410 \\
+$q$ & 4 & 20.0 & 0.0299 & 0.871 (0.004) & 0.122 & 0.407 \\
+\addlinespace
+$K$ & 16 & 9.9 & 0.0450 & 0.848 (0.002) & 0.118 & 0.401 \\
+$K$ & 32 & 9.9 & 0.0364 & 0.861 (0.003) & 0.118 & 0.403 \\
+$K$ & 64 & 9.9 & 0.0315 & 0.864 (0.004) & 0.121 & 0.413 \\
+$K$ & 128 & 9.9 & 0.0260 & 0.872 (0.005) & 0.128 & 0.408 \\
+$K$ & 256 & 9.9 & 0.0220 & 0.873 (0.005) & 0.136 & 0.405 \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} One parameter is varied at a time from the main configuration ($s=1$, $q=1$, $K=64$). $N_{\mathrm{eff}}$ is the effective number of attributes. RMSE values with different weights refer to different graphs and are not comparable across rows of $s$ and $q$.}
+\end{table}
+
+\begin{table}[t]
+\caption{Robustness to pure-noise attributes (HI-Small sample of 100,000 accounts, five folds)}
+\label{tab:noise}
+\centering
+\footnotesize
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Weight on noise} & \multicolumn{3}{c}{AUC (standard deviation)} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-6}
+Noise attributes & $s=0$ & $s=1$ & ZRL, $s=0$ & ZRL, $s=1$ & Boosting \\
+\midrule
+0 & 0.00 & 0.00 & 0.873 (0.005) & 0.871 (0.004) & 0.925 (0.003) \\
+15 & 0.33 & 0.09 & 0.867 (0.005) & 0.870 (0.003) & 0.921 (0.003) \\
+30 & 0.50 & 0.15 & 0.859 (0.006) & 0.870 (0.004) & 0.919 (0.003) \\
+60 & 0.67 & 0.21 & 0.855 (0.007) & 0.869 (0.004) & 0.919 (0.003) \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} Uniform random attributes are appended to the 30 real ones. Weight on noise is the total zeta weight that falls on the random attributes.}
+\end{table}
+
+\begin{table}[t]
+\caption{Ablations of ZRL (HI-Small, five folds)}
+\label{tab:ablation}
+\centering
+\footnotesize
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Variant & AUC & AP & R@5\% & Diff.\ ($p$) \\
+\midrule
+ZRL, main configuration & 0.864 & 0.121 & 0.413 & -- \\
+Equal weights ($s=0$) & 0.867 & 0.103 & 0.408 & +0.003 (.116) \\
+Entropy ranking (no labels in weights) & 0.867 & 0.123 & 0.418 & +0.003 (.100) \\
+Without non-backtracking centrality & 0.867 & 0.148 & 0.413 & +0.003 (.055) \\
+Behavioural attributes only & 0.852 & 0.137 & 0.392 & -0.012 (.007) \\
+$k$-means partition & 0.868 & 0.128 & 0.415 & +0.004 (.007) \\
+Random partition & 0.852 & 0.123 & 0.401 & -0.012 (.006) \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} Diff.\ is the AUC of the variant minus that of the main configuration, with the $p$-value of the corrected resampled $t$-test over five folds.}
+\end{table}
+
+\begin{table}[t]
+\caption{Cost of one complete fit as the number of accounts grows}
+\label{tab:scale}
+\centering
+\footnotesize
+\begin{tabular}{@{}rrrrrrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{Time (s)} & \multicolumn{2}{c}{Memory (GB)} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-7}
+Accounts & Edges & Total (sd) & Refine & Summary & Peak & Dense $W$ \\
+\midrule
+10,000 & $5.00\times10^{7}$ & 8 (0.0) & 4 & 0 & 5.3 & 0 \\
+25,000 & $3.12\times10^{8}$ & 11 (0.0) & 6 & 1 & 5.4 & 2 \\
+50,000 & $1.25\times10^{9}$ & 16 (0.0) & 11 & 2 & 6.0 & 10 \\
+100,000 & $5.00\times10^{9}$ & 30 (0.9) & 22 & 4 & 6.0 & 40 \\
+250,000 & $3.12\times10^{10}$ & 77 (0.0) & 57 & 14 & 13.1 & 250 \\
+500,000 & $1.25\times10^{11}$ & 156 (3.8) & 118 & 32 & 15.1 & 1,000 \\
+1,000,000 & $5.00\times10^{11}$ & 277 (1.9) & 211 & 58 & 15.7 & 4,000 \\
+2,077,023 & $2.16\times10^{12}$ & 473 (2.8) & 342 & 119 & 16.9 & 17,256 \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} 30 attributes, $K=64$, 512 landmarks, 8 threads. Each size is run 2 times, each in a fresh process on an otherwise idle machine, so peak memory belongs to that run alone. Total includes sorting, refinement, the exact summary and the sampled checks. Dense $W$ is the memory the graph would need in single precision. The fitted log--log slope of total time against accounts is 0.83.}
+\end{table}
+
+\begin{table*}[t]
+\caption{The five classes with the highest laundering rates (HI-Small, all accounts, descriptive)}
+\label{tab:classes}
+\centering
+\footnotesize
+\begin{tabular}{@{}crrrrl@{}}
+\toprule
+Class & Accounts & Laundering & Rate & Lift & Most distinctive attributes (class mean of the scaled rank; overall mean 0.50) \\
+\midrule
+A & 8,048 & 736 & 9.1\% & 7.4 & non-backtracking centrality (0.87); share sent (0.13); payments received (0.82) \\
+B & 8,048 & 724 & 9.0\% & 7.3 & payments sent (0.95); partners (0.94); receiving partners (0.93) \\
+C & 8,049 & 389 & 4.8\% & 3.9 & non-backtracking centrality (0.85); sending partners (0.83); partners (0.78) \\
+D & 8,048 & 259 & 3.2\% & 2.6 & partners (0.92); active days (0.91); receiving partners (0.90) \\
+E & 8,048 & 257 & 3.2\% & 2.6 & non-backtracking centrality (0.74); partners' degree (0.68); share sent (0.33) \\
+\bottomrule
+\end{tabular}
+\end{table*}

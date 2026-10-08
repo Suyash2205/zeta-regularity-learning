@@ -1,0 +1,88 @@
+dataset,method,sweep,value,auc,ap,folds
+results_hi,ZRL (behavioural attributes only)/class_risk,attributes,behavioural attributes only,0.8138314998337679,0.06512029972971214,5
+results_hi,ZRL (behavioural attributes only)/deviation,attributes,behavioural attributes only,0.7318426210901418,0.04076589399496812,5
+results_hi,ZRL (behavioural attributes only)/profile_logit,attributes,behavioural attributes only,0.852341599051052,0.1369545092898806,5
+results_hi,ZRL (entropy ranking)/class_risk,ranking,entropy,0.7971234086306607,0.03670421672217966,5
+results_hi,ZRL (entropy ranking)/deviation,ranking,entropy,0.6514589656908939,0.01810525582899058,5
+results_hi,ZRL (entropy ranking)/profile_logit,ranking,entropy,0.8673530445444794,0.12307945575152976,5
+results_hi,ZRL (equal weights)/class_risk,weights,equal,0.8100450090696214,0.04264614603969012,15
+results_hi,ZRL (equal weights)/deviation,weights,equal,0.704393808109916,0.026632581961276214,15
+results_hi,ZRL (equal weights)/profile_logit,weights,equal,0.8674105042341635,0.10374448296404885,15
+results_hi,ZRL (without non-backtracking centrality)/class_risk,attributes,without non-backtracking centrality,0.8269288449712358,0.06761584047312917,5
+results_hi,ZRL (without non-backtracking centrality)/deviation,attributes,without non-backtracking centrality,0.7594258456234295,0.03774547781414552,5
+results_hi,ZRL (without non-backtracking centrality)/profile_logit,attributes,without non-backtracking centrality,0.8668817555072847,0.14821541426991602,5
+results_hi,ZRL/class_risk,k,128,0.8268873561987867,0.06850556834588283,5
+results_hi,ZRL/class_risk,k,16,0.792190428159329,0.03611940533119774,5
+results_hi,ZRL/class_risk,k,256,0.8367774295212509,0.07632304736977104,5
+results_hi,ZRL/class_risk,k,32,0.8017794045953117,0.044135863040808,5
+results_hi,ZRL/class_risk,main,main,0.8152511634698801,0.05198070472114768,15
+results_hi,ZRL/class_risk,q,2.0,0.8253356659667803,0.05931053643916465,5
+results_hi,ZRL/class_risk,q,4.0,0.8288612337523382,0.06285943348851489,5
+results_hi,ZRL/class_risk,s,0.5,0.8186526583460303,0.05365678591920423,5
+results_hi,ZRL/class_risk,s,1.5,0.800983751575699,0.04794761321645953,5
+results_hi,ZRL/class_risk,s,2.0,0.7833266149358733,0.039714734787725754,5
+results_hi,ZRL/class_risk,s,3.0,0.7696939412130235,0.031808665917979526,5
+results_hi,ZRL/deviation,k,128,0.7313185507860442,0.036009534837275356,5
+results_hi,ZRL/deviation,k,16,0.6713767455146266,0.03251340434866554,5
+results_hi,ZRL/deviation,k,256,0.7492167219860155,0.042812003348917646,5
+results_hi,ZRL/deviation,k,32,0.6943252748451424,0.03196526168702453,5
+results_hi,ZRL/deviation,main,main,0.7060364044971942,0.03161826011685528,15
+results_hi,ZRL/deviation,q,2.0,0.7523288695427248,0.04203315582073837,5
+results_hi,ZRL/deviation,q,4.0,0.7414154663835073,0.0362766301864107,5
+results_hi,ZRL/deviation,s,0.5,0.736666921595486,0.03638737355680467,5
+results_hi,ZRL/deviation,s,1.5,0.7010134521510217,0.03067697428509871,5
+results_hi,ZRL/deviation,s,2.0,0.6986090240815578,0.02871024071857936,5
+results_hi,ZRL/deviation,s,3.0,0.6750444468036554,0.02056289624652321,5
+results_hi,ZRL/profile_logit,k,128,0.8715573390776058,0.12751873145929704,5
+results_hi,ZRL/profile_logit,k,16,0.8475910273007049,0.1184312078394576,5
+results_hi,ZRL/profile_logit,k,256,0.8728106386609976,0.13554896893756935,5
+results_hi,ZRL/profile_logit,k,32,0.8605076465593143,0.11824293385120607,5
+results_hi,ZRL/profile_logit,main,main,0.8643702820998568,0.12040555762279456,15
+results_hi,ZRL/profile_logit,q,2.0,0.8676210369980021,0.11846253426019415,5
+results_hi,ZRL/profile_logit,q,4.0,0.8705425718693233,0.12187654183134408,5
+results_hi,ZRL/profile_logit,s,0.5,0.8680664147436769,0.12344021258600595,5
+results_hi,ZRL/profile_logit,s,1.5,0.8607401100235836,0.11778097547552138,5
+results_hi,ZRL/profile_logit,s,2.0,0.852917936971,0.11269261748903023,5
+results_hi,ZRL/profile_logit,s,3.0,0.8277197613517776,0.08332458792633095,5
+results_hi,gradient boosting (all attributes),baseline,gb,0.9215147025080228,0.32666686594094163,15
+results_hi,gradient boosting (behavioural attributes),baseline,gb_behavioural,0.8956924017952076,0.3129390035638245,15
+results_hi,isolation forest (no labels),baseline,iforest,0.7613160013982235,0.03951035266332922,15
+results_hi,k-means partition/class_risk,partition,kmeans,0.8447590120787416,0.08837770697322411,15
+results_hi,k-means partition/deviation,partition,kmeans,0.7498206999872152,0.051007654057661424,15
+results_hi,k-means partition/profile_logit,partition,kmeans,0.8687644777212883,0.12866634896727952,15
+results_hi,logistic regression (all attributes),baseline,lr,0.8626083860197181,0.1387011993891848,15
+results_hi,random equal-sized partition/class_risk,partition,random,0.5013029402231323,0.012419906989778814,15
+results_hi,random equal-sized partition/deviation,partition,random,0.6692821468173967,0.051804948507563356,15
+results_hi,random equal-sized partition/profile_logit,partition,random,0.8519310753048555,0.12141719145446767,15
+results_hm,ZRL (equal weights)/class_risk,weights,equal,0.8163960584607677,0.0742750566615775,5
+results_hm,ZRL (equal weights)/deviation,weights,equal,0.6921714658962765,0.04075448572472791,5
+results_hm,ZRL (equal weights)/profile_logit,weights,equal,0.8626866467261927,0.15924425289967492,5
+results_hm,ZRL/class_risk,main,main,0.8260405656594523,0.10156098559490685,5
+results_hm,ZRL/deviation,main,main,0.7074728609999514,0.044533502652366073,5
+results_hm,ZRL/profile_logit,main,main,0.8636469082695213,0.17495869148705684,5
+results_hm,gradient boosting (all attributes),baseline,gb,0.9250808911083046,0.42370874942617237,5
+results_hm,gradient boosting (behavioural attributes),baseline,gb_behavioural,0.9013285704569605,0.3837321066844748,5
+results_hm,isolation forest (no labels),baseline,iforest,0.756320333818094,0.06110089529126691,5
+results_hm,k-means partition/class_risk,partition,kmeans,0.8429738749128468,0.16852025091788678,5
+results_hm,k-means partition/deviation,partition,kmeans,0.7632501672718217,0.05740163259552742,5
+results_hm,k-means partition/profile_logit,partition,kmeans,0.8659668669461681,0.2017151875469696,5
+results_hm,logistic regression (all attributes),baseline,lr,0.8624518349294901,0.20048577716420019,5
+results_hm,random equal-sized partition/class_risk,partition,random,0.501263869391776,0.02014074275726039,5
+results_hm,random equal-sized partition/deviation,partition,random,0.6783030005356327,0.0927822184771056,5
+results_hm,random equal-sized partition/profile_logit,partition,random,0.8398179768704352,0.18286984637540282,5
+results_li,ZRL (equal weights)/class_risk,weights,equal,0.7946262174252874,0.022197210432066457,15
+results_li,ZRL (equal weights)/deviation,weights,equal,0.6820861044768012,0.013463501974079174,15
+results_li,ZRL (equal weights)/profile_logit,weights,equal,0.8588610550182062,0.046302014376885595,15
+results_li,ZRL/class_risk,main,main,0.8005173295446082,0.023554073785880387,15
+results_li,ZRL/deviation,main,main,0.6830025214659824,0.012470001563939796,15
+results_li,ZRL/profile_logit,main,main,0.8549240938457895,0.0423331762441004,15
+results_li,gradient boosting (all attributes),baseline,gb,0.9114582871234542,0.10809239394217715,15
+results_li,gradient boosting (behavioural attributes),baseline,gb_behavioural,0.8760836138067649,0.1034452000866019,15
+results_li,isolation forest (no labels),baseline,iforest,0.7500563026480759,0.01985056204151044,15
+results_li,k-means partition/class_risk,partition,kmeans,0.8287834140663526,0.03148083007942835,15
+results_li,k-means partition/deviation,partition,kmeans,0.7098470903089513,0.016099500013386874,15
+results_li,k-means partition/profile_logit,partition,kmeans,0.8571200782941026,0.04375065766518298,15
+results_li,logistic regression (all attributes),baseline,lr,0.8457066584357003,0.04726531239367572,15
+results_li,random equal-sized partition/class_risk,partition,random,0.5074820756155554,0.0076752893232641915,15
+results_li,random equal-sized partition/deviation,partition,random,0.6456124198185828,0.022789538876553026,15
+results_li,random equal-sized partition/profile_logit,partition,random,0.8313511463177042,0.03628801977257653,15

@@ -68,8 +68,11 @@ wait
 ZRL_THREADS=8 ZRL_SCALE_REPEATS="${ZRL_SCALE_REPEATS:-2}" $RUN zrl/extras.py data/hm_accounts.parquet results/results_extra scale > logs/scale.log 2>&1
 $RUN zrl/report.py results results/paper > logs/report.log 2>&1
 
-# Checksums of every result table, for comparison with results/EXPECTED_HASHES.txt
+# Checksums of every result table
 ( cd results && for f in results_*/scores.csv results_*/structure.csv results_extra/noise.csv; do echo "$(sha "$f")  $f"; done ) > results/HASHES.txt
-if [ -f results/EXPECTED_HASHES.txt ]; then diff results/EXPECTED_HASHES.txt results/HASHES.txt && echo "all result tables match the expected hashes"; fi
+# Runs on different machines are not bit-identical, so the check compares means within a tolerance;
+# identical hashes are reported when they occur.
+if [ -f results/EXPECTED_HASHES.txt ] && diff -q results/EXPECTED_HASHES.txt results/HASHES.txt >/dev/null; then echo "result tables are bit-identical to the published run"; fi
+if [ -f results/EXPECTED_MEANS.csv ]; then $RUN zrl/check_results.py results; fi
 rm -rf results/logs && cp -r logs results/logs
 echo "done: tables and figures are in results/paper"

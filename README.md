@@ -18,7 +18,7 @@ cd zeta-regularity-learning
 ./reproduce.sh            # full run
 ```
 
-The script creates a virtual environment, installs the pinned packages, downloads the three public data files (verifying checksums), builds the account attributes, runs every experiment, and writes every table and figure of the paper to `results/paper/`. It finishes by comparing the result tables with `results/EXPECTED_HASHES.txt`.
+The script creates a virtual environment, installs the pinned packages, downloads the three public data files (verifying checksums), builds the account attributes, runs every experiment, and writes every table and figure of the paper to `results/paper/`. It finishes by comparing the mean results with those published in `results/EXPECTED_MEANS.csv` (runs on different machines agree closely but are not bit-identical; see `REPRODUCIBILITY.md`, Section 8).
 
 | Mode | Command | Needs | Time |
 |---|---|---|---|
@@ -40,6 +40,7 @@ Useful environment variables: `ZRL_THREADS` (worker threads), `ZRL_MAX_GB` (the 
 | `zrl/experiment_scale.py` | Cross-validated evaluation, sweeps, ablations and comparison methods |
 | `zrl/extras.py` | Noise-attribute test and scalability timings |
 | `zrl/report.py` | Turns result files into the paper's tables and figures |
+| `zrl/check_results.py` | Compares a fresh run with the published means |
 | `results/` | Fold-level scores, partition statistics, fold assignments, held-out predictions, logs and hashes from our runs |
 | `REPRODUCIBILITY.md` | Seeds, software versions, hardware, exact attribute definitions, every hyperparameter |
 | `checksums.sha256` | SHA-256 of the data files |
