@@ -23,7 +23,7 @@ The script creates a virtual environment, installs the pinned packages, download
 | Mode | Command | Needs | Time |
 |---|---|---|---|
 | Full | `./reproduce.sh` | 16 CPUs, 64 GB RAM or more, 10 GB disk | about 2 hours |
-| Quick check | `./reproduce.sh smoke` | 4 CPUs, 8 GB RAM | about 10 minutes |
+| Quick check | `./reproduce.sh smoke` | 4 CPUs, 16 GB RAM | about 15 minutes |
 
 The quick check runs the whole pipeline on a 30,000-account sample of HI-Small. Its numbers are not those of the paper.
 

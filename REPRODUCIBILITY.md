@@ -94,6 +94,8 @@ The payment graph has one directed, unweighted edge for every distinct (sender, 
 | Regularity check | 100 accounts per class drawn without replacement; for every pair of classes the sample block is centred on its mean, its leading singular vectors are found by 25 power iterations, and the four pairs of subsets given by the signs of the two vectors are tested, each subset needing at least an `ε` share of its class in the sample; the pair is irregular if any tested pair of subsets has a density more than `ε = 0.05` from the block density |
 | RMSE | 2,000,000 ordered pairs `u ≠ v` drawn uniformly; root mean square of `W_uv − R_{c(u) c(v)}` |
 
+Memory: the regularity check forms a dense block on `100 K` sampled accounts, about 0.2 GB for `K = 64` and 2.6 GB (with temporaries, about 8 GB) for `K = 256`, whatever the number of accounts. This is why the quick check needs 16 GB although it uses only 30,000 accounts; a single fit with `K = 64` on all 515,088 accounts of HI-Small needs about 2 GB.
+
 What is exact and what is estimated: given a partition, the reduced graph, the profiles, the deviations and the index are exact. The partition itself is heuristic (split directions come from landmark columns), and the share of irregular pairs and the RMSE are estimated from samples.
 
 ## 6. Comparison methods

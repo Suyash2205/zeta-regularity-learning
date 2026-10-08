@@ -2,7 +2,7 @@
 # One command to reproduce every table and figure of the paper.
 #
 #   ./reproduce.sh          full run: three data sets, all experiments (about 2 hours on 16 CPUs, 128 GB RAM)
-#   ./reproduce.sh smoke    quick check on a 30,000-account sample of HI-Small (about 10 minutes, 8 GB RAM)
+#   ./reproduce.sh smoke    quick check on a 30,000-account sample of HI-Small (about 15 minutes, 16 GB RAM)
 #
 # Environment: ZRL_THREADS (default 4), ZRL_MAX_GB (memory the run may use; it aborts above this),
 # ZRL_SKIP_INSTALL=1 to use an existing .venv as it is.
@@ -37,7 +37,7 @@ export OPENBLAS_NUM_THREADS="${OPENBLAS_NUM_THREADS:-3}" OMP_NUM_THREADS="${OMP_
 T="${ZRL_THREADS:-4}"
 
 if [ "$MODE" = "smoke" ]; then
-  export ZRL_MAX_GB="${ZRL_MAX_GB:-6}"
+  export ZRL_MAX_GB="${ZRL_MAX_GB:-12}"
   prepare HI-Small_Trans.csv hi
   $RUN - <<'PY'
 import polars as pl
