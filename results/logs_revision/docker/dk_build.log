@@ -1,0 +1,251 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 663B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11.9-slim-bookworm
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 73B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 129.54kB done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+#5 resolve docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317 0.0s done
+#5 DONE 0.1s
+
+#5 [1/6] FROM docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+#5 sha256:95b5b248c4420737e84eba208281cb893e5763023752a308c191e78c8b399b60 232B / 232B 0.1s done
+#5 sha256:98d167576f7c01209fbdc09830b859d5c5cec986eced40113c709d05ec6fbb1b 3.21MB / 3.21MB 0.1s done
+#5 sha256:d534b3df1e9ee48785a58a1e8f3ad3105eafe2b0ab25b3d1b958fdfcfb2aa001 0B / 12.87MB 0.2s
+#5 sha256:334af29dc78e996fde80bf175038aeb8b976b463adbdf8075184090903fce39d 3.51MB / 3.51MB 0.2s done
+#5 sha256:d534b3df1e9ee48785a58a1e8f3ad3105eafe2b0ab25b3d1b958fdfcfb2aa001 12.87MB / 12.87MB 0.2s done
+#5 sha256:a2318d6c47ec9cac5acc500c47c79602bcf953cec711a18bc898911a0984365b 28.83MB / 29.13MB 0.3s
+#5 sha256:a2318d6c47ec9cac5acc500c47c79602bcf953cec711a18bc898911a0984365b 29.13MB / 29.13MB 0.4s done
+#5 extracting sha256:a2318d6c47ec9cac5acc500c47c79602bcf953cec711a18bc898911a0984365b
+#5 extracting sha256:a2318d6c47ec9cac5acc500c47c79602bcf953cec711a18bc898911a0984365b 1.1s done
+#5 DONE 1.7s
+
+#5 [1/6] FROM docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+#5 extracting sha256:334af29dc78e996fde80bf175038aeb8b976b463adbdf8075184090903fce39d
+#5 extracting sha256:334af29dc78e996fde80bf175038aeb8b976b463adbdf8075184090903fce39d 0.2s done
+#5 DONE 1.9s
+
+#5 [1/6] FROM docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+#5 extracting sha256:d534b3df1e9ee48785a58a1e8f3ad3105eafe2b0ab25b3d1b958fdfcfb2aa001
+#5 extracting sha256:d534b3df1e9ee48785a58a1e8f3ad3105eafe2b0ab25b3d1b958fdfcfb2aa001 0.4s done
+#5 DONE 2.3s
+
+#5 [1/6] FROM docker.io/library/python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+#5 extracting sha256:95b5b248c4420737e84eba208281cb893e5763023752a308c191e78c8b399b60 0.0s done
+#5 extracting sha256:98d167576f7c01209fbdc09830b859d5c5cec986eced40113c709d05ec6fbb1b
+#5 extracting sha256:98d167576f7c01209fbdc09830b859d5c5cec986eced40113c709d05ec6fbb1b 0.2s done
+#5 DONE 2.5s
+
+#6 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*
+#6 0.415 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#6 0.452 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#6 0.466 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#6 0.537 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+#6 0.654 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#6 0.673 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [349 kB]
+#6 1.510 Fetched 9388 kB in 1s (8265 kB/s)
+#6 1.510 Reading package lists...
+#6 2.101 Reading package lists...
+#6 2.692 Building dependency tree...
+#6 2.887 Reading state information...
+#6 3.100 The following additional packages will be installed:
+#6 3.100   libbrotli1 libcurl4 libldap-2.5-0 libnghttp2-14 libpsl5 librtmp1 libsasl2-2
+#6 3.101   libsasl2-modules-db libssh2-1
+#6 3.101 Recommended packages:
+#6 3.101   libldap-common publicsuffix libsasl2-modules
+#6 3.183 The following NEW packages will be installed:
+#6 3.184   curl libbrotli1 libcurl4 libldap-2.5-0 libnghttp2-14 libpsl5 librtmp1
+#6 3.185   libsasl2-2 libsasl2-modules-db libssh2-1
+#6 3.186 The following packages will be upgraded:
+#6 3.189   ca-certificates
+#6 3.242 1 upgraded, 10 newly installed, 0 to remove and 49 not upgraded.
+#6 3.242 Need to get 1776 kB of archives.
+#6 3.242 After this operation, 3820 kB of additional disk space will be used.
+#6 3.242 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 ca-certificates all 20250419~deb12u1 [162 kB]
+#6 3.276 Get:2 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#6 3.288 Get:3 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#6 3.289 Get:4 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#6 3.290 Get:5 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#6 3.292 Get:6 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u3 [72.4 kB]
+#6 3.297 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#6 3.302 Get:8 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#6 3.302 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 libssh2-1 amd64 1.10.0-3+deb12u1 [176 kB]
+#6 3.302 Get:10 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u15 [392 kB]
+#6 3.303 Get:11 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u15 [316 kB]
+#6 3.451 debconf: delaying package configuration, since apt-utils is not installed
+#6 3.485 Fetched 1776 kB in 0s (17.7 MB/s)
+#6 3.519 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6695 files and directories currently installed.)
+#6 3.528 Preparing to unpack .../00-ca-certificates_20250419~deb12u1_all.deb ...
+#6 3.540 Unpacking ca-certificates (20250419~deb12u1) over (20230311) ...
+#6 3.922 Selecting previously unselected package libbrotli1:amd64.
+#6 3.924 Preparing to unpack .../01-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#6 3.930 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#6 3.984 Selecting previously unselected package libsasl2-modules-db:amd64.
+#6 3.986 Preparing to unpack .../02-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#6 3.990 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#6 4.027 Selecting previously unselected package libsasl2-2:amd64.
+#6 4.030 Preparing to unpack .../03-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#6 4.034 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#6 4.079 Selecting previously unselected package libldap-2.5-0:amd64.
+#6 4.082 Preparing to unpack .../04-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#6 4.086 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#6 4.138 Selecting previously unselected package libnghttp2-14:amd64.
+#6 4.143 Preparing to unpack .../05-libnghttp2-14_1.52.0-1+deb12u3_amd64.deb ...
+#6 4.147 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#6 4.189 Selecting previously unselected package libpsl5:amd64.
+#6 4.191 Preparing to unpack .../06-libpsl5_0.21.2-1_amd64.deb ...
+#6 4.194 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#6 4.232 Selecting previously unselected package librtmp1:amd64.
+#6 4.235 Preparing to unpack .../07-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#6 4.239 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#6 4.282 Selecting previously unselected package libssh2-1:amd64.
+#6 4.284 Preparing to unpack .../08-libssh2-1_1.10.0-3+deb12u1_amd64.deb ...
+#6 4.287 Unpacking libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#6 4.336 Selecting previously unselected package libcurl4:amd64.
+#6 4.339 Preparing to unpack .../09-libcurl4_7.88.1-10+deb12u15_amd64.deb ...
+#6 4.343 Unpacking libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#6 4.395 Selecting previously unselected package curl.
+#6 4.398 Preparing to unpack .../10-curl_7.88.1-10+deb12u15_amd64.deb ...
+#6 4.401 Unpacking curl (7.88.1-10+deb12u15) ...
+#6 4.457 Setting up libpsl5:amd64 (0.21.2-1) ...
+#6 4.467 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#6 4.477 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#6 4.486 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#6 4.496 Setting up ca-certificates (20250419~deb12u1) ...
+#6 4.582 debconf: unable to initialize frontend: Dialog
+#6 4.582 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 4.582 debconf: falling back to frontend: Readline
+#6 4.583 debconf: unable to initialize frontend: Readline
+#6 4.583 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#6 4.583 debconf: falling back to frontend: Teletype
+#6 6.887 Updating certificates in /etc/ssl/certs...
+#6 8.295 rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+#6 8.304 23 added, 13 removed; done.
+#6 8.345 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#6 8.357 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#6 8.368 Setting up libssh2-1:amd64 (1.10.0-3+deb12u1) ...
+#6 8.381 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#6 8.392 Setting up libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#6 8.403 Setting up curl (7.88.1-10+deb12u15) ...
+#6 8.413 Processing triggers for libc-bin (2.36-9+deb12u8) ...
+#6 8.441 Processing triggers for ca-certificates (20250419~deb12u1) ...
+#6 8.452 Updating certificates in /etc/ssl/certs...
+#6 9.372 0 added, 0 removed; done.
+#6 9.372 Running hooks in /etc/ca-certificates/update.d...
+#6 9.374 done.
+#6 DONE 10.3s
+
+#7 [3/6] WORKDIR /zrl
+#7 DONE 0.0s
+
+#8 [4/6] COPY requirements.txt .
+#8 DONE 0.0s
+
+#9 [5/6] RUN python -m venv .venv && .venv/bin/python -m pip install --no-cache-dir -r requirements.txt
+#9 5.590 Collecting numpy==2.4.6 (from -r requirements.txt (line 1))
+#9 5.684   Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#9 5.889 Collecting scipy==1.17.1 (from -r requirements.txt (line 2))
+#9 5.903   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#9 5.923      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 3.7 MB/s eta 0:00:00
+#9 6.198 Collecting polars==2.0.0 (from -r requirements.txt (line 3))
+#9 6.214   Downloading polars-2.0.0-py3-none-any.whl.metadata (11 kB)
+#9 6.368 Collecting scikit-learn==1.9.1 (from -r requirements.txt (line 4))
+#9 6.383   Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+#9 6.620 Collecting matplotlib==3.11.2 (from -r requirements.txt (line 5))
+#9 6.634   Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+#9 6.645      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.3/80.3 kB 7.8 MB/s eta 0:00:00
+#9 6.809 Collecting polars-runtime-32==2.0.0 (from polars==2.0.0->-r requirements.txt (line 3))
+#9 6.823   Downloading polars_runtime_32-2.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+#9 6.895 Collecting joblib>=1.4.0 (from scikit-learn==1.9.1->-r requirements.txt (line 4))
+#9 6.911   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#9 7.004 Collecting narwhals>=2.0.1 (from scikit-learn==1.9.1->-r requirements.txt (line 4))
+#9 7.021   Downloading narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)
+#9 7.049 Collecting threadpoolctl>=3.5.0 (from scikit-learn==1.9.1->-r requirements.txt (line 4))
+#9 7.063   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#9 7.175 Collecting contourpy>=1.0.1 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 7.189   Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+#9 7.213 Collecting cycler>=0.10 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 7.228   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+#9 7.486 Collecting fonttools>=4.28.2 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 7.500   Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (130 kB)
+#9 7.515      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.1/130.1 kB 9.7 MB/s eta 0:00:00
+#9 7.717 Collecting kiwisolver>=1.3.1 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 7.732   Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+#9 7.780 Collecting packaging>=20.0 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 7.793   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 8.053 Collecting pillow>=9 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 8.066   Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+#9 8.116 Collecting pyparsing>=3 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 8.129   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+#9 8.163 Collecting python-dateutil>=2.7 (from matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 8.177   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#9 8.272 Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn==1.9.1->-r requirements.txt (line 4))
+#9 8.286   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#9 8.376 Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.11.2->-r requirements.txt (line 5))
+#9 8.392   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#9 8.426 Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+#9 8.934    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 59.9 MB/s eta 0:00:00
+#9 8.951 Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+#9 9.181    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 250.7 MB/s eta 0:00:00
+#9 9.195 Downloading polars-2.0.0-py3-none-any.whl (876 kB)
+#9 9.201    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 876.6/876.6 kB 261.8 MB/s eta 0:00:00
+#9 9.215 Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+#9 9.257    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 238.1 MB/s eta 0:00:00
+#9 9.273 Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+#9 9.338    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 169.8 MB/s eta 0:00:00
+#9 9.353 Downloading polars_runtime_32-2.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (54.5 MB)
+#9 9.723    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.5/54.5 MB 103.3 MB/s eta 0:00:00
+#9 9.738 Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+#9 9.744    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 355.2/355.2 kB 160.6 MB/s eta 0:00:00
+#9 9.759 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+#9 9.772 Downloading fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+#9 9.825    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 110.8 MB/s eta 0:00:00
+#9 9.840 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#9 9.845    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 210.0 MB/s eta 0:00:00
+#9 9.858 Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+#9 9.873    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 114.9 MB/s eta 0:00:00
+#9 9.885 Downloading narwhals-2.27.1-py3-none-any.whl (483 kB)
+#9 9.890    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 483.2/483.2 kB 198.0 MB/s eta 0:00:00
+#9 9.902 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 9.905    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 254.9 MB/s eta 0:00:00
+#9 9.918 Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+#9 9.986    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 107.5 MB/s eta 0:00:00
+#9 9.999 Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+#9 10.00    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.4/126.4 kB 259.2 MB/s eta 0:00:00
+#9 10.02 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#9 10.02    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 212.4 MB/s eta 0:00:00
+#9 10.03 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#9 10.05 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#9 10.06 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#9 10.47 Installing collected packages: threadpoolctl, six, pyparsing, polars-runtime-32, pillow, packaging, numpy, narwhals, kiwisolver, fonttools, cycler, cloudpickle, scipy, python-dateutil, polars, joblib, contourpy, scikit-learn, matplotlib
+#9 25.64 Successfully installed cloudpickle-3.1.2 contourpy-1.3.3 cycler-0.12.1 fonttools-4.66.1 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.11.2 narwhals-2.27.1 numpy-2.4.6 packaging-26.3 pillow-12.3.0 polars-2.0.0 polars-runtime-32-2.0.0 pyparsing-3.3.3 python-dateutil-2.9.0.post0 scikit-learn-1.9.1 scipy-1.17.1 six-1.17.0 threadpoolctl-3.7.0
+#9 25.80 
+#9 25.80 [notice] A new release of pip is available: 24.0 -> 26.2.1
+#9 25.80 [notice] To update, run: python -m pip install --upgrade pip
+#9 DONE 29.8s
+
+#10 [6/6] COPY . .
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 26.9s done
+#11 exporting manifest sha256:15aab9cd5567d536090941b0779c414e17a1ca37f38d285cb1c36083ae088860 0.0s done
+#11 exporting config sha256:527d8402e7024b0ebdf02b0a6c20a4e96d7943f9f9e728eb6c6759d7c299efa1 0.0s done
+#11 exporting attestation manifest sha256:f9a67cf03e7043830144c577a0c145de382154bdfaf4890ac9391c01f55c2297 0.0s done
+#11 exporting manifest list sha256:45ab645ffe159c5c68a5aad687811155ab43c964b2aa777e3240ab6e575edcb7 0.0s done
+#11 naming to docker.io/library/zrl:latest done
+#11 unpacking to docker.io/library/zrl:latest
+#11 unpacking to docker.io/library/zrl:latest 11.0s done
+#11 DONE 38.1s

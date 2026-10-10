@@ -1,0 +1,9 @@
+accounts 515088, attributes 30, laundering 6357 (1.234%), task gnn
+/home/suyash/rev/zrl/revision.py:254: UserWarning: Sparse invariant checks are implicitly disabled. Memory errors (e.g. SEGFAULT) will occur when operating on a sparse tensor which violates the invariants, but checks incur performance overhead. To silence this warning, explicitly opt in or out. See `torch.sparse.check_sparse_tensor_invariants.__doc__` for guidance.  (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:848.)
+  return torch.sparse_coo_tensor(torch.stack([rows_, cols_]), 1.0 / deg[rows_], (n, n)).coalesce()
+{'method': 'GraphSAGE (account level)', 'rep': 0, 'fold': 0, 'best_epoch': 200, 'auc': 0.9398248256970954, 'ap': 0.3559673749402626, 'recall_top1': 0.3254670599803343, 'recall_top5': 0.6302851524090463, 'recall_top10': 0.7748279252704031} 421s
+{'method': 'GraphSAGE (account level)', 'rep': 0, 'fold': 1, 'best_epoch': 190, 'auc': 0.937733107488554, 'ap': 0.365875875551079, 'recall_top1': 0.32645034414945917, 'recall_top5': 0.6066863323500492, 'recall_top10': 0.7581120943952803} 847s
+{'method': 'GraphSAGE (account level)', 'rep': 0, 'fold': 2, 'best_epoch': 200, 'auc': 0.9367183184099964, 'ap': 0.3421754428063425, 'recall_top1': 0.31563421828908556, 'recall_top5': 0.5988200589970502, 'recall_top10': 0.767944936086529} 1281s
+{'method': 'GraphSAGE (account level)', 'rep': 0, 'fold': 3, 'best_epoch': 200, 'auc': 0.9417822735573461, 'ap': 0.38000687365759894, 'recall_top1': 0.344149459193707, 'recall_top5': 0.6420845624385447, 'recall_top10': 0.7807276302851525} 1784s
+{'method': 'GraphSAGE (account level)', 'rep': 0, 'fold': 4, 'best_epoch': 190, 'auc': 0.9419224536745383, 'ap': 0.3741700765987158, 'recall_top1': 0.34577603143418467, 'recall_top5': 0.6168958742632613, 'recall_top10': 0.7858546168958742} 2232s
+done 2232s

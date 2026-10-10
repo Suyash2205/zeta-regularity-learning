@@ -48,6 +48,7 @@ neg = a.filter(pl.col("is_laundering") == 0).sort("account").sample(28800, seed=
 pl.concat([pos, neg]).write_parquet("data/smoke_accounts.parquet")
 PY
   $RUN zrl/experiment_scale.py data/smoke_accounts.parquet results/results_hi full 1 "$T" | tee logs/smoke.log
+  ZRL_THREADS="$T" $RUN zrl/revision.py data/smoke_accounts.parquet results/results_hi unsup 1 | tee -a logs/smoke.log
   ZRL_SCALE_REPEATS=1 ZRL_THREADS="$T" $RUN zrl/extras.py data/smoke_accounts.parquet results/results_extra scale | tee -a logs/smoke.log
   $RUN zrl/report.py results results/paper
   echo "smoke run finished: see results/paper"
@@ -76,6 +77,7 @@ if [ "$MODE" = "revision" ]; then
   for pair in "hi HI-Small_Trans.csv" "li LI-Small_Trans.csv"; do
     set -- $pair
     CUT=$($RUN zrl/temporal_prep.py "data/$2" "data/$1_later.parquet" 2> "logs/rev_temporal_prep_$1.log")
+    echo "cut-off $CUT" >> "logs/rev_temporal_prep_$1.log"
     ZRL_T_MAX="$CUT" $RUN zrl/build_features.py "data/$2" "data/$1_past_raw.parquet" > "logs/rev_temporal_features_$1.log" 2>&1
     ZRL_T_MAX="$CUT" $RUN zrl/structural.py "data/$2" "data/$1_past_raw.parquet" "data/$1_past.parquet" >> "logs/rev_temporal_features_$1.log" 2>&1
     ZRL_THREADS=6 $REV "data/$1_past.parquet" "results/results_rev/$1" temporal "data/$1_later.parquet" > "logs/rev_temporal_$1.log" 2>&1 &
@@ -90,6 +92,7 @@ if [ "$MODE" = "revision" ]; then
   wait
   .venv/bin/python -m pip freeze | grep -i -E "^(torch|numpy|scipy|polars|scikit-learn)==" > results/results_rev/versions.txt
   rm -rf results/logs_revision && cp -r logs results/logs_revision
+  $RUN zrl/report.py results results/paper
   echo "revision experiments finished: see results/results_rev and results/results_*/scores_rev.csv"
   exit 0
 fi

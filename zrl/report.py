@@ -204,7 +204,8 @@ if any(extra[k]["temporal"] is not None for k in present):
         meta = json.load(open(src / "results_rev" / k / "temporal_meta.json"))
         summary["temporal"][k] = {"meta": meta, "rows": t.to_dicts()}
         for r in t.to_dicts():
-            lines.append(f"{NAME[k]} & {r['method'].replace('ZRL-U deviation (no labels)', 'ZRL-U deviation').capitalize() if r['method'][0].islower() else r['method']} & "
+            lab = r["method"].replace(" (no labels)", "")
+            lines.append(f"{NAME[k]} & {lab[0].upper() + lab[1:]} & "
                          f"{r['auc']:.3f} ({r['auc_lo']:.3f}--{r['auc_hi']:.3f}) & {r['ap']:.3f} & {r['recall_top5']:.3f} \\\\")
         lines.append("\\addlinespace")
     lines += ["\\bottomrule", "\\end{tabular}",
@@ -443,7 +444,26 @@ if fit_file.exists():
     lines += ["\\bottomrule", "\\end{tabular}", "\\end{table*}"]
     tex["tab:classes"] = "\n".join(lines)
 
-ORDER = ["tab:structure", "tab:seeds", "tab:main", "tab:sig", "tab:temporal", "tab:strict", "tab:noise", "tab:sens", "tab:ablation", "tab:scale",
+# ------------------------------------------------------------------ near-tied relevance
+ties = read(src / "results_rev" / "ties.csv")
+if ties is not None:
+    meta = json.load(open(src / "results_rev" / "ties_meta.json"))
+    summary["ties"] = {"meta": meta, "rows": ties.to_dicts()}
+    short = {"nbt_centrality": "non-backtracking centr.", "n_out": "payments sent", "out_partners": "receiving partners",
+             "pagerank_out": "PageRank (sender)", "degree": "partners"}
+    lines = ["\\begin{table}[t]", f"\\caption{{Order of the {meta['near_tied']} attributes whose label-free relevance is nearly tied (HI-Small, ZRL-U)}}",
+             "\\label{tab:ties}", "\\centering", "\\footnotesize", "\\begin{tabular}{@{}llrrr@{}}", "\\toprule",
+             "Order & Largest weight on & RMSE & AUC & Top 25\\% \\\\", "\\midrule"]
+    for r in ties.to_dicts():
+        first = "shared" if r["order"] == "shared weight" else short.get(r["first_attribute"], r["first_attribute"].replace("_", " "))
+        lines.append(f"{r['order'].capitalize()} & {first} & {r['rmse']:.4f} & {r['profile_auc']:.4f} & {r['share_top25'] * 100:.1f}\\% \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}",
+              "\\par\\vspace{3pt}\\parbox{0.98\\columnwidth}{\\footnotesize \\emph{Note.} Near-tied = relevance within 0.001 of the highest. "
+              "Shared weight = the near-tied attributes all receive the mean of the weights of the ranks they span. AUC of the profile "
+              "classifier, five folds.}", "\\end{table}"]
+    tex["tab:ties"] = fit_width("\n".join(lines), "\\columnwidth")
+
+ORDER = ["tab:structure", "tab:seeds", "tab:main", "tab:sig", "tab:temporal", "tab:strict", "tab:noise", "tab:ties", "tab:sens", "tab:ablation", "tab:scale",
          "tab:classes"]
 (out / "tables.tex").write_text("\n\n".join(tex[k] for k in ORDER if k in tex) + "\n")
 json.dump(summary, open(out / "summary.json", "w"), indent=1)

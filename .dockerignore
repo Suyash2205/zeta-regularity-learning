@@ -1,5 +1,5 @@
-.git
-.venv
 data
+.venv
+.git
 logs
 __pycache__

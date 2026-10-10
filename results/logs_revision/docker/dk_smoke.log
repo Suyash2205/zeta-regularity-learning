@@ -1,0 +1,20 @@
+accounts 30000, attributes 30, laundering 1200 (4.000%), mode full, repeats 1
+ranking set 6000 evaluation set 24000 top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies', 'cross_cur_share', 'partner_degree']
+rep 0 fold 0 done, 17 fits cached, top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies'], peak 8.4 GB, 415s
+rep 0 fold 1 done, 17 fits cached, top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies'], peak 8.4 GB, 418s
+rep 0 fold 2 done, 17 fits cached, top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies'], peak 8.4 GB, 421s
+rep 0 fold 3 done, 17 fits cached, top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies'], peak 8.4 GB, 425s
+rep 0 fold 4 done, 17 fits cached, top attributes ['nbt_centrality', 'degree', 'share_ach', 'n_currencies'], peak 8.4 GB, 428s
+done 446s
+accounts 30000, attributes 30, laundering 1200 (4.000%), task unsup
+ZRL-U done, 19s
+ZRL-MI (label-ranked) done, 39s
+k-means partition done, 48s
+random partition done, 57s
+done 57s
+{'n': 10000, 'rep': 0, 'edges': 49995000, 'fit_seconds': 11.080204486846924, 'matvec_seconds': 0.01676487922668457, 'sort_seconds': 0.013761520385742188, 'refine_seconds': 4.517516136169434, 'summary_seconds': 0.3715183734893799, 'checks_seconds': 6.177110910415649, 'peak_rss_gb': 0.924528, 'dense_float32_gb': 0.4, 'mse': 0.0010008941657507421, 'irregular_fraction': 0.05853174603174603}
+{'n': 25000, 'rep': 0, 'edges': 312487500, 'fit_seconds': 16.73431968688965, 'matvec_seconds': 0.020473718643188477, 'sort_seconds': 0.041106224060058594, 'refine_seconds': 9.246541500091553, 'summary_seconds': 1.0023057460784912, 'checks_seconds': 6.4440343379974365, 'peak_rss_gb': 0.9923, 'dense_float32_gb': 2.5, 'mse': 0.0009833639430992692, 'irregular_fraction': 0.06597222222222222}
+{'n': 30000, 'rep': 0, 'edges': 449985000, 'fit_seconds': 18.855677366256714, 'matvec_seconds': 0.028130531311035156, 'sort_seconds': 0.04470658302307129, 'refine_seconds': 11.244107961654663, 'summary_seconds': 1.319225549697876, 'checks_seconds': 6.2472922801971436, 'peak_rss_gb': 1.018112, 'dense_float32_gb': 3.6, 'mse': 0.0009800114165761603, 'irregular_fraction': 0.0625}
+tables ['tab:structure', 'tab:main', 'tab:sig', 'tab:sens', 'tab:ablation', 'tab:scale', 'tab:classes'] datasets ['hi'] folds {'hi': 5}
+smoke run finished: see results/paper
+EXIT 0

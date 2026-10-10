@@ -1,0 +1,726 @@
+accounts 515088, attributes 30, laundering 6357 (1.234%), task unsup
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 8.373450555154704e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.746076763874953e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.680437536488171e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.018886094556365e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.753696624173244e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 9.319140303887252e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 8.034721332705885e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 8.772682491553496e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 9.38682660489576e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.549131370547912e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.262789125661584e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.950788389303852e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 5.70494336216143e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.542952573658113e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.29473654814683e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+ZRL-U done, 353s
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.319650225350415e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.155570986265957e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.641037231247537e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.157611747743431e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.205485192367632e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.426196108577642e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.054548151723793e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.36670378639792e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.756124548701337e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.391893947466087e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.272434660559156e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.149113573883369e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 5.479411768760656e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.821586850946915e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.312566114274887e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+ZRL-MI (label-ranked) done, 675s
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.377356325832807e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.317691341768295e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.400092272291658e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.533527224268255e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.624980469245202e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.357007802966109e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.798044521223346e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.427907178225723e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.397537160613865e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.991783152443531e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.586726979980085e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 6.72680329216746e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.741384422388364e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.32537941416922e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 7.64082415116718e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+k-means partition done, 894s
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 2.808619115057809e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.022730899968849e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.6612521358538856e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.4168921591561912e-10.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 2.1537731598186838e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.6132940539037577e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 2.6770294869749023e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 2.05882777493116e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 4.879406212410231e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.1314753578517411e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 4.159038002882198e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 4.190803704062773e-09.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 5.263004476674382e-10.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 1.3803412406143689e-11.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 2.4433854939331923e-10.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+random partition done, 1078s
+done 1079s

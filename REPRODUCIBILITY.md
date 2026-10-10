@@ -1,6 +1,6 @@
 # Reproducibility details
 
-Everything here describes the code as it is in this repository. No hyperparameter was tuned on the data; every value below was set once.
+Everything here describes the code as it is in this repository. No hyperparameter of ZRL was tuned on the data; every value below was set once. Sections 1–8 describe the first round of experiments (`./reproduce.sh`), in which the attribute order came from labels (ZRL-MI). Section 9 describes the experiments added in revision (`./reproduce.sh revision`), including the label-free configuration ZRL-U that the paper now uses as its main one.
 
 ## 1. Software and hardware
 
@@ -130,3 +130,27 @@ Before that, the same experiments had been run once on another machine of the sa
 The runs are **not bit-identical**. Single fold-level AUC values differ by up to 0.015. Known causes: (i) the attribute tables are built with multithreaded aggregations whose floating-point sums can differ in the last digits, which changes ranks among near-ties; (ii) the start vector of the Arnoldi iteration for the spectral radius is not seeded (the radius itself agreed to four digits: 17.07, 18.56 and 26.78 for HI-Small, LI-Small and HI-Medium); (iii) median splits amplify last-digit differences, because an account at the median can fall on either side; (iv) mini-batch k-means is sensitive to the same perturbations. For this reason `reproduce.sh` ends by comparing means with `results/EXPECTED_MEANS.csv` within a tolerance of 0.01 (`zrl/check_results.py`), and reports bit-identical hashes when they occur.
 
 Scalability timings (`results/results_extra/scalability.csv`) were measured after all experiments had finished, each run in a fresh process, twice per size.
+
+## 9. Experiments added in revision
+
+`./reproduce.sh revision` runs `zrl/revision.py`. The splits are those of Section 3. All of these analyses were added after the first results were known and are exploratory.
+
+| Task | What it does | Output |
+|---|---|---|
+| `unsup` | ZRL-U: attributes ranked by `1 − normalised entropy` of the 20-bin histogram of the min–max scaled raw attribute (no labels), `s = 1`, `q = 1`, 64 classes. Scored on every fold next to ZRL-MI, a k-means partition and a random partition of the same graph; concentration of laundering accounts per partition | `results/results_*/scores_rev.csv`, `structure_rev.csv`, `meta_rev.json` |
+| `seeds` | ZRL-U on HI-Small with landmark seeds 0–4 | `results/results_rev/seeds.csv` |
+| `ties` | The attributes whose entropy relevance is within 0.001 of the highest are reordered (reversed, three random orders) or given a shared weight | `results/results_rev/ties.csv` |
+| `strict` | Label = at least two flagged transactions (HI-Small) | `results/results_rev/hi/strict.csv` |
+| `tuned` | Gradient boosting: 16 random settings (learning rate, leaves, minimum leaf size, L2, class weighting; up to 500 iterations with early stopping); logistic regression: four values of `C`. Chosen once by average precision on a 20% validation split of the training part of the first fold, then used in all five folds | `results/results_rev/{hi,li}/tuned.csv`, `tuned_meta.json` |
+| `gnn` | GraphSAGE on the directed transaction graph: two layers, separate mean aggregation over payers and payees, hidden size 64, dropout 0.2, Adam (learning rate 0.01, weight decay 5e-4), 200 full-batch epochs, class-weighted loss, state chosen by average precision on 10% of the training accounts; `torch.manual_seed(fold)`. Five folds, CPU only | `results/results_rev/{hi,li}/gnn.csv` |
+| `weights` | Equal, zeta (`s = 1`), geometric (ratio 0.85) and linear weight laws with 0, 30 and 60 uniform noise attributes, entropy ranking, 100,000-account sample of HI-Small | `results/results_rev/hi/weights.csv` |
+| `temporal` | Transactions are cut at the time before which 70% of them lie (`zrl/temporal_prep.py`: 2022/09/07 14:55 for HI-Small, 2022/09/07 14:48 for LI-Small). Attributes, graph and training labels come from before the cut; accounts not flagged before it are scored for being flagged after it. Bootstrap intervals from 500 resamples | `results/results_rev/{hi,li}/temporal.csv`, `temporal_meta.json` |
+
+Software for these runs: the packages of Section 1 plus `torch` (CPU wheel), pinned in `requirements-gnn.txt`; the installed versions are recorded in `results/results_rev/versions.txt`. Machine: Google Cloud `e2-standard-16` (16 virtual CPUs, 64 GB RAM, Debian 12). Logs are in `results/logs_revision`.
+
+Container: the image defined by `Dockerfile` was built on that machine and `docker run zrl smoke` ran to completion inside it (logs in `results/logs_revision/docker`). The full and revision runs were made outside the container, with the same pinned packages.
+
+Near-tied relevance: on HI-Small the five attributes with the highest entropy relevance differ by less than 2e-6, so their order is arbitrary. Across six orderings the profile AUC ranges from 0.865 to 0.871 (`results/results_rev/ties.csv`); differences smaller than this between ZRL-U and other methods should not be over-read.
+
+The sweeps over `s`, `q` and `K` and the attribute ablations were not rerun with the label-free ranking; they are reported with the label-ranked weights of the first round.
+

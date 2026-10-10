@@ -1,0 +1,5 @@
+{
+ "torch": "2.14.1+cu130",
+ "edges": 647939,
+ "architecture": "2 GraphSAGE layers with separate mean aggregation over payers and payees, hidden size 64, dropout 0.2, Adam lr 0.01, weight decay 5e-4, 200 full-batch epochs, class-weighted loss, model state chosen by average precision on 10% of the training accounts"
+}

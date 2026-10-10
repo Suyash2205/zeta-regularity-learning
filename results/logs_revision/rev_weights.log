@@ -1,0 +1,14 @@
+accounts 515088, attributes 30, laundering 6357 (1.234%), task weights
+noise 0 law equal done, 44s
+noise 0 law zeta done, 83s
+noise 0 law geometric done, 114s
+noise 0 law linear done, 143s
+noise 30 law equal done, 186s
+noise 30 law zeta done, 232s
+noise 30 law geometric done, 278s
+noise 30 law linear done, 323s
+noise 60 law equal done, 381s
+noise 60 law zeta done, 444s
+noise 60 law geometric done, 505s
+noise 60 law linear done, 562s
+done 562s

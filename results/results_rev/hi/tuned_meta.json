@@ -1,0 +1,191 @@
+{
+ "gradient_boosting_trials": [
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.0,
+   "class_weight": "None",
+   "val_ap": 0.26866471630887007,
+   "iterations": 11
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.03,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 20,
+   "l2_regularization": 0.0,
+   "class_weight": "balanced",
+   "val_ap": 0.32936816311891365,
+   "iterations": 328
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.1,
+   "max_leaf_nodes": 127,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.1,
+   "class_weight": "balanced",
+   "val_ap": 0.3348223409096776,
+   "iterations": 41
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.1,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.1,
+   "class_weight": "balanced",
+   "val_ap": 0.330283392416887,
+   "iterations": 57
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.05,
+   "max_leaf_nodes": 127,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.0,
+   "class_weight": "None",
+   "val_ap": 0.3571683156849486,
+   "iterations": 100
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 20,
+   "l2_regularization": 1.0,
+   "class_weight": "balanced",
+   "val_ap": 0.34131607024427135,
+   "iterations": 29
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 20,
+   "l2_regularization": 1.0,
+   "class_weight": "None",
+   "val_ap": 0.3453184124792126,
+   "iterations": 82
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.1,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 50,
+   "l2_regularization": 0.1,
+   "class_weight": "None",
+   "val_ap": 0.34447344114064116,
+   "iterations": 114
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.05,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 20,
+   "l2_regularization": 0.0,
+   "class_weight": "None",
+   "val_ap": 0.3537390111113804,
+   "iterations": 187
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.1,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.0,
+   "class_weight": "balanced",
+   "val_ap": 0.33464719517631963,
+   "iterations": 55
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 31,
+   "min_samples_leaf": 50,
+   "l2_regularization": 1.0,
+   "class_weight": "balanced",
+   "val_ap": 0.3288691574894743,
+   "iterations": 48
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 31,
+   "min_samples_leaf": 100,
+   "l2_regularization": 1.0,
+   "class_weight": "balanced",
+   "val_ap": 0.3266915602685539,
+   "iterations": 47
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 0.1,
+   "class_weight": "balanced",
+   "val_ap": 0.3360056552341596,
+   "iterations": 30
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.03,
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 1.0,
+   "class_weight": "balanced",
+   "val_ap": 0.3385411881516086,
+   "iterations": 173
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.05,
+   "max_leaf_nodes": 31,
+   "min_samples_leaf": 50,
+   "l2_regularization": 0.1,
+   "class_weight": "balanced",
+   "val_ap": 0.33885415471127056,
+   "iterations": 151
+  },
+  {
+   "model": "gradient boosting",
+   "learning_rate": 0.2,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 200,
+   "l2_regularization": 0.1,
+   "class_weight": "None",
+   "val_ap": 0.33667938199404995,
+   "iterations": 78
+  }
+ ],
+ "gradient_boosting_best": {
+  "learning_rate": 0.05,
+  "max_leaf_nodes": 127,
+  "min_samples_leaf": 100,
+  "l2_regularization": 0.0,
+  "class_weight": "None"
+ },
+ "logistic_trials": [
+  {
+   "C": 0.01,
+   "val_ap": 0.15478358881883303
+  },
+  {
+   "C": 0.1,
+   "val_ap": 0.15470286928618004
+  },
+  {
+   "C": 1.0,
+   "val_ap": 0.15467135065951995
+  },
+  {
+   "C": 10.0,
+   "val_ap": 0.1546667499982822
+  }
+ ],
+ "logistic_best_C": 0.01,
+ "protocol": "16 random configurations and 4 values of C, chosen by average precision on a 20% validation split of the training part of the first fold; the chosen settings are then used in all five folds"
+}

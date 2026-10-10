@@ -1,0 +1,19 @@
+accounts 513292, attributes 30, laundering 3857 (0.751%), task temporal
+past accounts 513292, flagged in the past 3857, candidates 509435, first flagged later 2442 (0.479%)
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:597: LinAlgWarning: The inner solver of NewtonCholeskySolver stumbled upon a singular or very ill-conditioned Hessian matrix at iteration 1. It will now resort to lbfgs instead.
+Further options are to use another solver or to avoid such situation in the first place. Possible remedies are removing collinear features of X or increasing the penalization strengths.
+The original Linear Algebra message was:
+An ill-conditioned matrix detected: slice 0 has rcond = 5.630397481581895e-08.
+  warnings.warn(
+/home/suyash/rev/.venv/lib/python3.11/site-packages/sklearn/linear_model/_glm/_newton_solver.py:199: ConvergenceWarning: lbfgs failed to converge after 199 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=199).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.iteration += _check_optimize_result("lbfgs", opt_res, max_iter=max_iter)
+{'method': 'ZRL-U profiles', 'auc': 0.6231061683336172, 'ap': 0.007085693771777536, 'recall_top1': 0.015561015561015561, 'recall_top5': 0.0773955773955774, 'recall_top10': 0.1678951678951679, 'auc_lo': 0.6115310386266227, 'auc_hi': 0.633054140126744}
+{'method': 'ZRL-U deviation (no labels)', 'auc': 0.5643184802285619, 'ap': 0.005672982574936633, 'recall_top1': 0.006142506142506142, 'recall_top5': 0.05896805896805897, 'recall_top10': 0.12244062244062244, 'auc_lo': 0.5532498532974109, 'auc_hi': 0.5759690224938991}
+{'method': 'logistic regression', 'auc': 0.6227747155797445, 'ap': 0.007064794525599927, 'recall_top1': 0.015561015561015561, 'recall_top5': 0.08804258804258805, 'recall_top10': 0.171990171990172, 'auc_lo': 0.6117295397472317, 'auc_hi': 0.6335329721870937}
+{'method': 'gradient boosting', 'auc': 0.6488661048492248, 'ap': 0.008251686855493507, 'recall_top1': 0.018837018837018837, 'recall_top5': 0.10933660933660934, 'recall_top10': 0.21744471744471744, 'auc_lo': 0.6380397659583414, 'auc_hi': 0.6604826193993141}
+done 486s
