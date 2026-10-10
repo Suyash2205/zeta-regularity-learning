@@ -9,6 +9,21 @@
 \cmidrule(lr){5-6}
 Data & Partition & RMSE & Irreg. & top 12.5\% & top 25\% & Max.\ lift \\
 \midrule
+HI-Small & Regularity (ZRL-U) & 0.0328 & 0.079 & 40.6\% & 65.0\% & 4.1 \\
+HI-Small & Regularity (ZRL-MI) & 0.0314 & 0.060 & 47.7\% & 67.9\% & 7.4 \\
+HI-Small & $k$-means & 0.0291 & 0.016 & 49.2\% & 69.8\% & 9.2 \\
+HI-Small & Random & 0.1277 & 1.000 & 14.5\% & 28.0\% & 1.2 \\
+\addlinespace
+LI-Small & Regularity (ZRL-U) & 0.0307 & 0.034 & 39.7\% & 64.2\% & 5.4 \\
+LI-Small & Regularity (ZRL-MI) & 0.0334 & 0.072 & 41.1\% & 65.7\% & 4.5 \\
+LI-Small & $k$-means & 0.0292 & 0.028 & 45.5\% & 71.2\% & 6.1 \\
+LI-Small & Random & 0.1262 & 1.000 & 14.8\% & 28.9\% & 1.2 \\
+\addlinespace
+HI-Medium & Regularity (ZRL-U) & 0.0314 & 0.043 & 38.0\% & 65.9\% & 3.7 \\
+HI-Medium & Regularity (ZRL-MI) & 0.0290 & 0.064 & 50.7\% & 69.5\% & 10.0 \\
+HI-Medium & $k$-means & 0.0308 & 0.023 & 46.7\% & 71.4\% & 5.0 \\
+HI-Medium & Random & 0.1254 & 1.000 & 13.3\% & 26.2\% & 1.1 \\
+\addlinespace
 \bottomrule
 \end{tabular}}
 \par\vspace{3pt}\parbox{0.98\columnwidth}{\footnotesize \emph{Note.} RMSE = root-mean-square error of replacing each edge weight by its class-pair density, estimated on two million random pairs (standard error below $2\times10^{-5}$). Irreg.\ = share of class pairs found irregular at $\varepsilon=0.05$ on 100 sampled accounts per class. Concentration: classes are ordered by laundering rate and the share of all laundering accounts in the first 12.5\% and 25\% of accounts is reported (descriptive, all accounts); a random partition gives 12.5\% and 25\%. Max.\ lift = highest class rate over the overall rate.}
