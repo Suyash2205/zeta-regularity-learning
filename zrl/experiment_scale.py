@@ -39,7 +39,7 @@ MAIN = {"s": 1.0, "q": 1.0, "k": 64}
 STRUCTURAL = ["pagerank_in", "pagerank_out", "nbt_centrality", "reciprocity", "partner_degree", "degree"]
 
 acc = pl.read_parquet(src).sort("account")
-FEATS = [c for c in acc.columns if c not in ("account", "is_laundering", "n_tx")]
+FEATS = [c for c in acc.columns if c not in ("account", "is_laundering", "n_tx", "n_flagged")]
 y = acc["is_laundering"].to_numpy().astype(int)
 X_raw = acc.select(FEATS).to_numpy()
 X01 = zs.rank01(X_raw)

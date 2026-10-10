@@ -26,7 +26,7 @@ THREADS = int(__import__("os").environ.get("ZRL_THREADS", "4"))
 out_dir.mkdir(parents=True, exist_ok=True)
 
 acc = pl.read_parquet(src).sort("account")
-FEATS = [c for c in acc.columns if c not in ("account", "is_laundering", "n_tx")]
+FEATS = [c for c in acc.columns if c not in ("account", "is_laundering", "n_tx", "n_flagged")]
 y_all = acc["is_laundering"].to_numpy().astype(int)
 X_all = acc.select(FEATS).to_numpy()
 m = len(FEATS)

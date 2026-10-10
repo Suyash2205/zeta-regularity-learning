@@ -2,6 +2,7 @@
 # One command to reproduce every table and figure of the paper.
 #
 #   ./reproduce.sh          full run: three data sets, all experiments (about 2 hours on 16 CPUs, 128 GB RAM)
+#   ./reproduce.sh revision the experiments added in revision (about 90 minutes on 16 CPUs)
 #   ./reproduce.sh smoke    quick check on a 30,000-account sample of HI-Small (about 15 minutes, 16 GB RAM)
 #
 # Environment: ZRL_THREADS (default 4), ZRL_MAX_GB (memory the run may use; it aborts above this),
@@ -57,6 +58,40 @@ export ZRL_MAX_GB="${ZRL_MAX_GB:-60}" ZRL_PARALLEL_BLOCK="${ZRL_PARALLEL_BLOCK:-
 prepare HI-Small_Trans.csv hi
 prepare LI-Small_Trans.csv li
 prepare HI-Medium_Trans.csv hm
+
+if [ "$MODE" = "revision" ]; then
+  # Experiments added in revision (label-free main configuration and its robustness). About 90 minutes on 16 CPUs.
+  REV="$RUN zrl/revision.py"
+  ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_hi unsup 3 > logs/rev_hi_unsup.log 2>&1 &
+  ZRL_THREADS=4 $REV data/li_accounts.parquet results/results_li unsup 3 > logs/rev_li_unsup.log 2>&1 &
+  ZRL_THREADS=4 $REV data/hm_accounts.parquet results/results_hm unsup 1 > logs/rev_hm_unsup.log 2>&1 &
+  wait
+  ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_rev seeds > logs/rev_seeds.log 2>&1 &
+  ( ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi strict > logs/rev_strict.log 2>&1
+    ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi weights > logs/rev_weights.log 2>&1 ) &
+  ( for d in hi li; do ZRL_THREADS=4 $REV data/${d}_accounts.parquet results/results_rev/$d tuned > logs/rev_tuned_$d.log 2>&1; done ) &
+  wait
+  # Time-based test: attributes from the first 70% of the transactions, labels from the rest.
+  for pair in "hi HI-Small_Trans.csv" "li LI-Small_Trans.csv"; do
+    set -- $pair
+    CUT=$($RUN zrl/temporal_prep.py "data/$2" "data/$1_later.parquet" 2> "logs/rev_temporal_prep_$1.log")
+    ZRL_T_MAX="$CUT" $RUN zrl/build_features.py "data/$2" "data/$1_past_raw.parquet" > "logs/rev_temporal_features_$1.log" 2>&1
+    ZRL_T_MAX="$CUT" $RUN zrl/structural.py "data/$2" "data/$1_past_raw.parquet" "data/$1_past.parquet" >> "logs/rev_temporal_features_$1.log" 2>&1
+    ZRL_THREADS=6 $REV "data/$1_past.parquet" "results/results_rev/$1" temporal "data/$1_later.parquet" > "logs/rev_temporal_$1.log" 2>&1 &
+  done
+  wait
+  # Graph neural network baseline (needs PyTorch).
+  .venv/bin/python -m pip -q install -r requirements-gnn.txt
+  for pair in "hi HI-Small_Trans.csv" "li LI-Small_Trans.csv"; do
+    set -- $pair
+    ZRL_THREADS=7 $REV "data/$1_accounts.parquet" "results/results_rev/$1" gnn "data/$2" > "logs/rev_gnn_$1.log" 2>&1 &
+  done
+  wait
+  .venv/bin/python -m pip freeze | grep -i -E "^(torch|numpy|scipy|polars|scikit-learn)==" > results/results_rev/versions.txt
+  rm -rf results/logs_revision && cp -r logs results/logs_revision
+  echo "revision experiments finished: see results/results_rev and results/results_*/scores_rev.csv"
+  exit 0
+fi
 
 # The three cross-validation experiments and the noise test run side by side.
 $RUN zrl/experiment_scale.py data/hi_accounts.parquet results/results_hi full 3 5 > logs/hi.log 2>&1 &

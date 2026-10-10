@@ -10,6 +10,7 @@ The non-backtracking centrality solves M(t) x = (1 - t^2) 1 with the deformed gr
 Laplacian M(t) = I - tA + t^2 (D - I), the matrix whose determinant appears in the
 Ihara-Bass formula for the graph zeta function.
 """
+import os
 import sys
 
 import numpy as np
@@ -21,6 +22,7 @@ src, acc_path, out = sys.argv[1:4]
 COLS = ["ts", "from_bank", "from_acct", "to_bank", "to_acct", "amt_recv", "cur_recv", "amt_paid", "cur_paid", "fmt", "label"]
 edges = (
     pl.scan_csv(src, has_header=True, new_columns=COLS, schema_overrides={"from_bank": pl.Utf8, "to_bank": pl.Utf8})
+    .filter(pl.col("ts") < os.environ["ZRL_T_MAX"] if os.environ.get("ZRL_T_MAX") else pl.lit(True))  # same text format, sorts by time
     .select(src=pl.col("from_bank") + "_" + pl.col("from_acct"), dst=pl.col("to_bank") + "_" + pl.col("to_acct"))
     .filter(pl.col("src") != pl.col("dst"))
     .group_by(["src", "dst"]).agg(n=pl.len())

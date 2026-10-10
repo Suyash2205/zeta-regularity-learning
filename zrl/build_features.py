@@ -1,7 +1,11 @@
 """Build one row of behavioural attributes per account from the IBM AML transactions file.
 
 Usage: python build_features.py <HI-Small_Trans.csv> <out.parquet>
+
+Set ZRL_T_MAX (format YYYY/MM/DD HH:MM) to use only transactions strictly before that time.
+The column n_flagged (number of flagged transactions of the account) is a label, not an attribute.
 """
+import os
 import sys
 
 import polars as pl
@@ -29,6 +33,9 @@ tx = (
     )
     .collect()
 )
+if os.environ.get("ZRL_T_MAX"):
+    from datetime import datetime
+    tx = tx.filter(pl.col("ts") < datetime.strptime(os.environ["ZRL_T_MAX"], "%Y/%m/%d %H:%M"))
 print("transactions", tx.height, "laundering", int(tx["label"].sum()))
 
 FORMATS = ["ACH", "Cheque", "Credit Card", "Wire", "Cash", "Bitcoin", "Reinvestment"]
@@ -60,6 +67,7 @@ acc = sent.join(recv, on="account", how="full", coalesce=True).fill_null(0.0).wi
     repeat_out=pl.col("n_out") / pl.col("out_partners").clip(lower_bound=1),
     n_tx=pl.col("n_out") + pl.col("n_in"),
     is_laundering=((pl.col("launder_out") + pl.col("launder_in")) > 0).cast(pl.Int8),
+    n_flagged=(pl.col("launder_out") + pl.col("launder_in")).cast(pl.Int32),
 ).drop("launder_out", "launder_in")
 acc.write_parquet(out)
 print("accounts", acc.height, "laundering accounts", int(acc["is_laundering"].sum()))
