@@ -6,6 +6,7 @@ Tasks
   unsup <repeats>   label-free main configuration (entropy ranking) on every fold, against the label-ranked
                     variant, a k-means partition and a random partition of the same graph; class concentration
   seeds             variation over five landmark seeds
+  ties              effect of the order among attributes whose entropy relevance is nearly tied
   strict            the same evaluation with a stricter label (at least two flagged transactions)
   tuned             gradient boosting and logistic regression with settings chosen on a validation split
   gnn <trans.csv>   an account-level graph neural network (GraphSAGE with mean aggregation)
@@ -188,6 +189,34 @@ elif task == "seeds":
         pl.DataFrame(per_seed).write_csv(out_dir / "seeds.csv")
         pl.DataFrame(rows).write_csv(out_dir / "seeds_scores.csv")
         print(f"seed {seed} done, {time.time() - t0:.0f}s", flush=True)
+
+# ------------------------------------------------------------------------------------------------ ties
+elif task == "ties":
+    # The entropy relevance of the most heavy-tailed attributes is nearly identical, so their order is
+    # arbitrary. Reorder the attributes whose relevance is within 0.001 of the best and measure the effect.
+    near = int((entropy_relevance >= entropy_relevance.max() - 1e-3).sum())
+    print(f"attributes within 0.001 of the highest relevance: {near}: {[FEATS[i] for i in ENT_ORDER[:near]]}", flush=True)
+    rng = np.random.default_rng(0)
+    orders = {"as ranked": ENT_ORDER.copy(), "reversed": np.concatenate([ENT_ORDER[:near][::-1], ENT_ORDER[near:]])}
+    for i in range(3):
+        orders[f"shuffled {i + 1}"] = np.concatenate([rng.permutation(ENT_ORDER[:near]), ENT_ORDER[near:]])
+    # tie-aware weights: the near-tied attributes share the mean of the weights of the ranks they span
+    w_shared = law_weights(ENT_ORDER, "zeta")
+    w_shared[ENT_ORDER[:near]] = w_shared[ENT_ORDER[:near]].mean()
+    rows, per = [], []
+    for name, w in [(k_, law_weights(o, "zeta")) for k_, o in orders.items()] + [("shared weight", w_shared)]:
+        part, F = summarise(w)
+        before = len(rows)
+        score_partition(rows, "ZRL-U", part, F, y, 1, {"order": name})
+        rmse, se = rmse_with_error(zs.L1Graph(X01, w, threads=THREADS), part.labels, part.R)
+        per.append({"order": name, "first_attribute": FEATS[int(np.argmax(w))], "rmse": rmse,
+                    "profile_auc": float(np.mean([r["auc"] for r in rows[before:] if r["method"].endswith("profile_logit")])),
+                    "profile_ap": float(np.mean([r["ap"] for r in rows[before:] if r["method"].endswith("profile_logit")])),
+                    **concentration(part.labels, y)})
+        pl.DataFrame(per).write_csv(out_dir / "ties.csv")
+        print(per[-1], f"{time.time() - t0:.0f}s", flush=True)
+    json.dump({"near_tied": near, "attributes": [FEATS[i] for i in ENT_ORDER[:near]],
+               "relevance": [float(entropy_relevance[i]) for i in ENT_ORDER[:near]]}, open(out_dir / "ties_meta.json", "w"))
 
 # ------------------------------------------------------------------------------------------------ strict
 elif task == "strict":

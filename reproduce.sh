@@ -66,7 +66,8 @@ if [ "$MODE" = "revision" ]; then
   ZRL_THREADS=4 $REV data/li_accounts.parquet results/results_li unsup 3 > logs/rev_li_unsup.log 2>&1 &
   ZRL_THREADS=4 $REV data/hm_accounts.parquet results/results_hm unsup 1 > logs/rev_hm_unsup.log 2>&1 &
   wait
-  ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_rev seeds > logs/rev_seeds.log 2>&1 &
+  ( ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_rev seeds > logs/rev_seeds.log 2>&1
+    ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_rev ties > logs/rev_ties.log 2>&1 ) &
   ( ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi strict > logs/rev_strict.log 2>&1
     ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi weights > logs/rev_weights.log 2>&1 ) &
   ( for d in hi li; do ZRL_THREADS=4 $REV data/${d}_accounts.parquet results/results_rev/$d tuned > logs/rev_tuned_$d.log 2>&1; done ) &
