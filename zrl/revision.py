@@ -244,6 +244,7 @@ elif task == "gnn":
     edges = (pl.scan_csv(sys.argv[4], has_header=True, new_columns=COLS, schema_overrides={"from_bank": pl.Utf8, "to_bank": pl.Utf8})
              .select(src=pl.col("from_bank") + "_" + pl.col("from_acct"), dst=pl.col("to_bank") + "_" + pl.col("to_acct"))
              .filter(pl.col("src") != pl.col("dst")).unique().collect())
+    edges = edges.filter(pl.col("src").is_in(acc["account"].implode()) & pl.col("dst").is_in(acc["account"].implode()))
     index = {a: i for i, a in enumerate(acc["account"].to_list())}
     s_idx = torch.tensor([index[a] for a in edges["src"].to_list()])
     d_idx = torch.tensor([index[a] for a in edges["dst"].to_list()])
