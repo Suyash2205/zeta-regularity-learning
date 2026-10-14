@@ -40,7 +40,7 @@ def read(path, **kw):
 
 old = {k: read(src / f"results_{k}" / "scores.csv", schema_overrides={"value": pl.Utf8}) for k, _ in DATASETS}
 rev = {k: read(src / f"results_{k}" / "scores_rev.csv") for k, _ in DATASETS}
-extra = {k: {t: read(src / "results_rev" / k / f"{t}.csv") for t in ("tuned", "gnn", "strict", "temporal", "weights")} for k, _ in DATASETS}
+extra = {k: {t: read(src / "results_rev" / k / f"{t}.csv") for t in ("tuned", "gnn", "strict", "temporal", "weights", "fair")} for k, _ in DATASETS}
 present = [k for k, _ in DATASETS if rev[k] is not None and old[k] is not None]
 NAME = dict(DATASETS)
 summary = {"datasets": {}, "folds": {}}
@@ -53,24 +53,26 @@ METHODS = [
     ("GraphSAGE on the transaction graph", "gnn", "GraphSAGE (account level)"),
     ("Logistic regression, tuned", "tuned", "logistic regression (tuned)"),
     ("Logistic regression, default settings", "old", "logistic regression (all attributes)"),
+    ("Logistic regression, spline-expanded attributes", "fair", "logistic regression (spline-expanded attributes)"),
     ("ZRL-U profiles (label-free summary)", "rev", "ZRL-U/profile_logit"),
     ("ZRL-MI profiles (label-ranked weights)", "rev", "ZRL-MI (label-ranked)/profile_logit"),
     ("ZRL profiles, equal weights", "old", "ZRL (equal weights)/profile_logit"),
     ("Profiles on a $k$-means partition", "rev", "k-means partition/profile_logit"),
+    ("Profiles on a balanced $k$-means partition", "fair", "balanced k-means partition/profile_logit"),
     ("Profiles on a random partition", "rev", "random partition/profile_logit"),
     ("ZRL-U class risk", "rev", "ZRL-U/class_risk"),
     ("$k$-means class risk", "rev", "k-means partition/class_risk"),
     ("ZRL-U deviation (no labels)", "rev", "ZRL-U/deviation"),
     ("Isolation forest (no labels)", "old", "isolation forest (no labels)"),
 ]
-BREAK_AFTER = {4, 9, 11}
+BREAK_AFTER = {5, 11, 13}
 METRICS = [("auc", "AUC"), ("ap", "AP"), ("recall_top1", "R@1\\%"), ("recall_top5", "R@5\\%")]
 MAIN = "ZRL-U profiles (label-free summary)"
 
 
 def rows_of(key, origin, method):
     df = {"old": old[key], "rev": rev[key]}.get(origin)
-    if origin in ("tuned", "gnn"):
+    if origin in ("tuned", "gnn", "fair"):
         df = extra[key][origin]
     if df is None:
         return None
@@ -153,12 +155,16 @@ lines = ["\\begin{table}[t]", "\\caption{Accuracy of 64-class summaries and conc
          " & & & & \\multicolumn{2}{c}{Share of laundering in} & \\\\", "\\cmidrule(lr){5-6}",
          "Data & Partition & RMSE & Irreg. & top 12.5\\% & top 25\\% & Max.\\ lift \\\\", "\\midrule"]
 summary["structure"] = {}
-LAB = {"ZRL-U": "Regularity (ZRL-U)", "ZRL-MI (label-ranked)": "Regularity (ZRL-MI)", "k-means partition": "$k$-means", "random partition": "Random"}
+LAB = {"ZRL-U": "Regularity (ZRL-U)", "ZRL-MI (label-ranked)": "Regularity (ZRL-MI)", "k-means partition": "$k$-means",
+       "balanced k-means partition": "Balanced $k$-means", "random partition": "Random"}
 for k in present:
     st, co = read(src / f"results_{k}" / "structure_rev.csv"), read(src / f"results_{k}" / "concentration.csv")
     if st is None or co is None:
         continue
-    for method in ("ZRL-U", "ZRL-MI (label-ranked)", "k-means partition", "random partition"):
+    fst, fco = read(src / "results_rev" / k / "fair_structure.csv"), read(src / "results_rev" / k / "fair_concentration.csv")
+    if fst is not None and fco is not None:
+        st, co = pl.concat([st.select(fst.columns), fst], how="vertical_relaxed"), pl.concat([co, fco], how="vertical_relaxed")
+    for method in ("ZRL-U", "ZRL-MI (label-ranked)", "k-means partition", "balanced k-means partition", "random partition"):
         s_, c_ = st.filter(pl.col("method") == method).to_dicts(), co.filter(pl.col("method") == method).to_dicts()
         if not s_ or not c_:
             continue

@@ -12,6 +12,7 @@ Data & Partition & RMSE & Irreg. & top 12.5\% & top 25\% & Max.\ lift \\
 HI-Small & Regularity (ZRL-U) & 0.0328 & 0.079 & 40.6\% & 65.0\% & 4.1 \\
 HI-Small & Regularity (ZRL-MI) & 0.0314 & 0.060 & 47.7\% & 67.9\% & 7.4 \\
 HI-Small & $k$-means & 0.0291 & 0.016 & 49.2\% & 69.8\% & 9.2 \\
+HI-Small & Balanced $k$-means & 0.0681 & 0.404 & 46.7\% & 67.7\% & 7.2 \\
 HI-Small & Random & 0.1277 & 1.000 & 14.5\% & 28.0\% & 1.2 \\
 \addlinespace
 LI-Small & Regularity (ZRL-U) & 0.0307 & 0.034 & 39.7\% & 64.2\% & 5.4 \\
@@ -63,11 +64,13 @@ Gradient boosting, default settings & 0.922 (0.003) & 0.327 & 0.296 & 0.551 & 0.
 GraphSAGE on the transaction graph & 0.940 (0.002) & 0.364 & 0.331 & 0.619 & 0.926 (0.005) & 0.092 & 0.165 & 0.541 & -- & -- & -- & -- \\
 Logistic regression, tuned & 0.863 (0.002) & 0.139 & 0.180 & 0.407 & 0.846 (0.003) & 0.047 & 0.121 & 0.346 & -- & -- & -- & -- \\
 Logistic regression, default settings & 0.863 (0.002) & 0.139 & 0.181 & 0.406 & 0.846 (0.004) & 0.047 & 0.122 & 0.347 & 0.862 (0.004) & 0.200 & 0.175 & 0.394 \\
+Logistic regression, spline-expanded attributes & 0.892 (0.003) & 0.195 & 0.218 & 0.451 & -- & -- & -- & -- & -- & -- & -- & -- \\
 \addlinespace
 ZRL-U profiles (label-free summary) & 0.868 (0.003) & 0.122 & 0.162 & 0.419 & 0.856 (0.004) & 0.045 & 0.108 & 0.340 & 0.869 (0.003) & 0.177 & 0.137 & 0.400 \\
 ZRL-MI profiles (label-ranked weights) & 0.864 (0.003) & 0.122 & 0.165 & 0.415 & 0.855 (0.005) & 0.042 & 0.096 & 0.323 & 0.864 (0.003) & 0.177 & 0.156 & 0.391 \\
 ZRL profiles, equal weights & 0.867 (0.003) & 0.104 & 0.143 & 0.409 & 0.859 (0.005) & 0.046 & 0.106 & 0.347 & 0.863 (0.003) & 0.159 & 0.125 & 0.396 \\
 Profiles on a $k$-means partition & 0.870 (0.003) & 0.118 & 0.161 & 0.421 & 0.863 (0.005) & 0.048 & 0.111 & 0.361 & 0.871 (0.003) & 0.189 & 0.153 & 0.401 \\
+Profiles on a balanced $k$-means partition & 0.867 (0.003) & 0.101 & 0.134 & 0.411 & -- & -- & -- & -- & -- & -- & -- & -- \\
 Profiles on a random partition & 0.844 (0.003) & 0.105 & 0.155 & 0.393 & 0.828 (0.007) & 0.038 & 0.088 & 0.313 & 0.846 (0.004) & 0.131 & 0.102 & 0.371 \\
 \addlinespace
 ZRL-U class risk & 0.797 (0.003) & 0.037 & 0.040 & 0.194 & 0.789 (0.005) & 0.023 & 0.054 & 0.192 & 0.796 (0.002) & 0.056 & 0.036 & 0.171 \\
@@ -94,9 +97,11 @@ HI-Small & Gradient boosting, default & -0.054 & 0/15 & $<.001$ \\
 HI-Small & GraphSAGE & -0.072 & 0/5 & $<.001$ \\
 HI-Small & Logistic regression, tuned & +0.005 & 5/5 & .002 \\
 HI-Small & Logistic regression, default & +0.005 & 15/15 & $<.001$ \\
+HI-Small & Logistic regression, spline-expanded attributes & -0.025 & 0/15 & $<.001$ \\
 HI-Small & ZRL-MI profiles & +0.003 & 15/15 & .001 \\
 HI-Small & ZRL profiles, equal weights & +0.000 & 8/15 & .810 \\
 HI-Small & Profiles on a $k$-means partition & -0.003 & 1/15 & .002 \\
+HI-Small & Profiles on a balanced $k$-means partition & +0.001 & 10/15 & .280 \\
 HI-Small & Profiles on a random partition & +0.024 & 15/15 & $<.001$ \\
 \addlinespace
 LI-Small & Gradient boosting, tuned & -0.064 & 0/5 & $<.001$ \\

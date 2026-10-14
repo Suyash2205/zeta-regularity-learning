@@ -71,7 +71,8 @@ if [ "$MODE" = "revision" ]; then
     ZRL_THREADS=5 $REV data/hi_accounts.parquet results/results_rev ties > logs/rev_ties.log 2>&1 ) &
   ( ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi strict > logs/rev_strict.log 2>&1
     ZRL_THREADS=3 $REV data/hi_accounts.parquet results/results_rev/hi weights > logs/rev_weights.log 2>&1 ) &
-  ( for d in hi li; do ZRL_THREADS=4 $REV data/${d}_accounts.parquet results/results_rev/$d tuned > logs/rev_tuned_$d.log 2>&1; done ) &
+  ( for d in hi li; do ZRL_THREADS=4 $REV data/${d}_accounts.parquet results/results_rev/$d tuned > logs/rev_tuned_$d.log 2>&1; done
+    ZRL_THREADS=4 $REV data/hi_accounts.parquet results/results_rev/hi fair 3 > logs/rev_fair_hi.log 2>&1 ) &
   wait
   # Time-based test: attributes from the first 70% of the transactions, labels from the rest.
   for pair in "hi HI-Small_Trans.csv" "li LI-Small_Trans.csv"; do

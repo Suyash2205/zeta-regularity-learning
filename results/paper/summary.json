@@ -96,6 +96,25 @@
     ],
     "folds": 15
    },
+   "Logistic regression, spline-expanded attributes": {
+    "auc": [
+     0.892363255696668,
+     0.0033668098628561295
+    ],
+    "ap": [
+     0.19521495761560734,
+     0.011495195829123993
+    ],
+    "recall_top1": [
+     0.21804819058326713,
+     0.008867546824363286
+    ],
+    "recall_top5": [
+     0.45110604980556473,
+     0.01224740163111139
+    ],
+    "folds": 15
+   },
    "ZRL-U profiles (label-free summary)": {
     "auc": [
      0.8677031574973685,
@@ -169,6 +188,25 @@
     "recall_top5": [
      0.4206970048790728,
      0.008384217785257577
+    ],
+    "folds": 15
+   },
+   "Profiles on a balanced $k$-means partition": {
+    "auc": [
+     0.8667160308112577,
+     0.0033976864475364953
+    ],
+    "ap": [
+     0.10094682069431485,
+     0.005530919453350187
+    ],
+    "recall_top1": [
+     0.13350365334822104,
+     0.009510928448220192
+    ],
+    "recall_top5": [
+     0.4107370510103615,
+     0.009288237428708272
     ],
     "folds": 15
    },
@@ -364,6 +402,7 @@
     ],
     "folds": 15
    },
+   "Logistic regression, spline-expanded attributes": null,
    "ZRL-U profiles (label-free summary)": {
     "auc": [
      0.8560314960476727,
@@ -440,6 +479,7 @@
     ],
     "folds": 15
    },
+   "Profiles on a balanced $k$-means partition": null,
    "Profiles on a random partition": {
     "auc": [
      0.828045346271212,
@@ -578,6 +618,7 @@
     ],
     "folds": 5
    },
+   "Logistic regression, spline-expanded attributes": null,
    "ZRL-U profiles (label-free summary)": {
     "auc": [
      0.8692025757858429,
@@ -654,6 +695,7 @@
     ],
     "folds": 5
    },
+   "Profiles on a balanced $k$-means partition": null,
    "Profiles on a random partition": {
     "auc": [
      0.846200095223197,
@@ -788,6 +830,12 @@
     "wins": 15,
     "n": 15
    },
+   "Logistic regression, spline-expanded attributes": {
+    "diff": -0.024660098199299544,
+    "p": 3.512076379829461e-12,
+    "wins": 0,
+    "n": 15
+   },
    "ZRL-MI profiles (label-ranked weights)": {
     "diff": 0.0034412405098189175,
     "p": 0.00110575809112282,
@@ -804,6 +852,12 @@
     "diff": -0.0025374385290240016,
     "p": 0.002149422469780664,
     "wins": 1,
+    "n": 15
+   },
+   "Profiles on a balanced $k$-means partition": {
+    "diff": 0.0009871266861109322,
+    "p": 0.2803922717687265,
+    "wins": 10,
     "n": 15
    },
    "Profiles on a random partition": {
@@ -954,6 +1008,21 @@
     "classes_ge_2x": 10,
     "smallest_class": 1980,
     "largest_class": 32067
+   },
+   "balanced k-means partition": {
+    "rmse": 0.06812716483731349,
+    "rmse_se": 6.0144177395802494e-05,
+    "irregular_fraction": 0.4037698412698413,
+    "index": 0.5370864306200976,
+    "method": "balanced k-means partition",
+    "share_top12": 0.46720612302275694,
+    "share_top25": 0.6765793860566903,
+    "share_top50": 0.9155287716832557,
+    "max_lift": 7.208655570118693,
+    "classes_zero": 11,
+    "classes_ge_2x": 9,
+    "smallest_class": 8048,
+    "largest_class": 8049
    },
    "random partition": {
     "rmse": 0.1277494660405313,
@@ -1262,6 +1331,13 @@
   },
   "rows": [
    {
+    "method": "ZRL-U/class_risk",
+    "auc": 0.8834850445883345,
+    "sd": 0.005038806928303365,
+    "ap": 0.012963033045100627,
+    "r5": 0.34661245208743396
+   },
+   {
     "method": "ZRL-U/profile_logit",
     "auc": 0.9678892736342359,
     "sd": 0.003614588587652564,
@@ -1276,11 +1352,11 @@
     "r5": 0.09682482129907802
    },
    {
-    "method": "ZRL-U/class_risk",
-    "auc": 0.8834850445883345,
-    "sd": 0.005038806928303365,
-    "ap": 0.012963033045100627,
-    "r5": 0.34661245208743396
+    "method": "logistic regression",
+    "auc": 0.9672381563194007,
+    "sd": 0.003245135681173024,
+    "ap": 0.24614989271014026,
+    "r5": 0.8032943126489174
    },
    {
     "method": "gradient boosting",
@@ -1288,13 +1364,6 @@
     "sd": 0.05285912962163159,
     "ap": 0.2708457621944321,
     "r5": 0.6463068476121413
-   },
-   {
-    "method": "logistic regression",
-    "auc": 0.9672381563194007,
-    "sd": 0.003245135681173024,
-    "ap": 0.24614989271014026,
-    "r5": 0.8032943126489174
    }
   ]
  },

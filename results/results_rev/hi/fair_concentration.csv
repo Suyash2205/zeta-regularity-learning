@@ -1,0 +1,2 @@
+method,share_top12,share_top25,share_top50,max_lift,classes_zero,classes_ge_2x,smallest_class,largest_class
+balanced k-means partition,0.46720612302275694,0.6765793860566903,0.9155287716832557,7.208655570118693,11,9,8048,8049

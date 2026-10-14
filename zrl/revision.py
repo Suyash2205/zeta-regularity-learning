@@ -12,6 +12,8 @@ Tasks
   gnn <trans.csv>   an account-level graph neural network (GraphSAGE with mean aggregation)
   weights           zeta weights against other decreasing weight laws when noise attributes are added
   temporal <labels_later.parquet>   train on the past, predict accounts first flagged later
+  fair <repeats>    two further baselines: k-means forced to equal class sizes (summarised exactly like ZRL), and
+                    logistic regression on a cubic-spline expansion of the attributes (nonlinear, no graph)
 
 Splits are those of experiment_scale.py: a stratified 20% ranking set, then stratified five-fold
 cross-validation on the rest; models train on four folds plus the ranking set.
@@ -217,6 +219,48 @@ elif task == "ties":
         print(per[-1], f"{time.time() - t0:.0f}s", flush=True)
     json.dump({"near_tied": near, "attributes": [FEATS[i] for i in ENT_ORDER[:near]],
                "relevance": [float(entropy_relevance[i]) for i in ENT_ORDER[:near]]}, open(out_dir / "ties_meta.json", "w"))
+
+# ------------------------------------------------------------------------------------------------ fair
+elif task == "fair":
+    from sklearn.preprocessing import SplineTransformer
+    repeats = int(sys.argv[4]) if len(sys.argv) > 4 else 1
+    w_ent = law_weights(ENT_ORDER, "zeta")
+    Xw = (X01 * np.sqrt(w_ent)).astype(np.float32)
+    # Balanced k-means: k-means centres, then every account goes to its nearest centre that still has room,
+    # visiting (account, centre) pairs from the closest to the farthest, so all classes hold n/K accounts (+1).
+    centres = MiniBatchKMeans(K, n_init=3, batch_size=8192, random_state=0).fit(Xw).cluster_centers_.astype(np.float32)
+    dist = (Xw ** 2).sum(1)[:, None] - 2 * Xw @ centres.T + (centres ** 2).sum(1)[None, :]
+    cap = np.full(K, n // K) + (np.arange(K) < n % K)
+    labels = np.full(n, -1, np.int32)
+    left = n
+    for flat in np.argsort(dist, axis=None, kind="stable"):
+        u, c = divmod(int(flat), K)
+        if labels[u] < 0 and cap[c] > 0:
+            labels[u], cap[c], left = c, cap[c] - 1, left - 1
+            if left == 0:
+                break
+    del dist
+    zs.check_memory()
+    rows, stats, conc = [], [], []
+    part, F = summarise(w_ent, labels)
+    score_partition(rows, "balanced k-means partition", part, F, y, repeats)
+    rmse, se = rmse_with_error(zs.L1Graph(X01, w_ent, threads=THREADS), part.labels, part.R)
+    stats.append({"method": "balanced k-means partition", "rmse": rmse, "rmse_se": se, "irregular_fraction": part.irregular_fraction,
+                  "index": part.index})
+    conc.append({"method": "balanced k-means partition", **concentration(part.labels, y)})
+    print(f"balanced k-means done, {time.time() - t0:.0f}s, peak {zs.check_memory():.1f} GB", flush=True)
+    # Logistic regression on a cubic B-spline expansion of the scaled ranks (uniform knots on [0, 1], so the
+    # expansion uses no data and cannot leak): 30 attributes become 30 x 6 = 180 nonlinear features (one basis
+    # function per attribute is dropped, because the basis sums to one).
+    S_ = SplineTransformer(n_knots=5, degree=3, knots="uniform", include_bias=False).fit(np.vstack([np.zeros(m), np.ones(m)])).transform(X01).astype(np.float32)
+    zs.check_memory()
+    for rep, fold, train, test, _ in folds(y, repeats):
+        rows.append({"method": "logistic regression (spline-expanded attributes)", "rep": rep, "fold": fold,
+                     **metrics(logit(S_, y, train, test), y[test])})
+    print(f"spline logistic regression done, {time.time() - t0:.0f}s, peak {zs.check_memory():.1f} GB", flush=True)
+    pl.DataFrame(rows).write_csv(out_dir / "fair.csv")
+    pl.DataFrame(stats).write_csv(out_dir / "fair_structure.csv")
+    pl.DataFrame(conc).write_csv(out_dir / "fair_concentration.csv")
 
 # ------------------------------------------------------------------------------------------------ strict
 elif task == "strict":
