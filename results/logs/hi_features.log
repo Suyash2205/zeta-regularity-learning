@@ -1,0 +1,14 @@
+transactions 5078345 laundering 5177
+accounts 515088 laundering accounts 6357
+shape: (1, 4)
+┌──────┬──────┬───────┬────────┐
+│ q0.5 ┆ q0.9 ┆ q0.99 ┆ q0.999 │
+│ ---  ┆ ---  ┆ ---   ┆ ---    │
+│ f64  ┆ f64  ┆ f64   ┆ f64    │
+╞══════╪══════╪═══════╪════════╡
+│ 6.0  ┆ 51.0 ┆ 119.0 ┆ 191.0  │
+└──────┴──────┴───────┴────────┘
+top 2000: min n_tx 149.0, laundering accounts 115
+top 3000: min n_tx 136.0, laundering accounts 158
+top 4000: min n_tx 127.0, laundering accounts 190
+top 6000: min n_tx 115.0, laundering accounts 234

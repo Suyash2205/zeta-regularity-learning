@@ -12,6 +12,20 @@ Given the partition, the reduced graph and all profiles are computed exactly fro
 
 What the results show, in short: 64 classes reproduce the edge weights with an error of about 0.03; a classifier on the profiles is slightly ahead of logistic regression on the attributes and clearly behind tuned gradient boosting and a graph neural network; a k-means partition summarised in the same exact way is slightly more accurate than the regularity-inspired one; and under a time-based test every method is weak. ZRL is a summary for human review, not a detector.
 
+## Check the results in minutes
+
+A full rerun takes hours on a large machine. The intermediate results of the published run (the class of every
+account in every partition, the folds, the fitted reduced graphs) are saved in `results/`, and the account
+attributes are attached to the release `verification-data-v1`, so the results can be checked without it:
+
+```bash
+./verify.sh quick              # 10 s: result files unchanged; tables and every number quoted in the paper follow from them
+./verify.sh dumps hi           # 6 min, 2 GB: recompute every partition-based result of HI-Small from the saved partitions
+./verify.sh spot hi partition  # 3 min: rebuild the ZRL-U partition from scratch and compare (other pieces: see VERIFY.md)
+```
+
+`VERIFY.md` explains what each level shows, how closely it agrees on other machines, and what it does not cover.
+
 ## Reproduce everything with one command
 
 ```bash
@@ -50,13 +64,15 @@ Useful environment variables: `ZRL_THREADS` (worker threads), `ZRL_MAX_GB` (the 
 | `Dockerfile` | Container that runs `reproduce.sh` |
 | `zrl/report.py` | Turns result files into the paper's tables and figures |
 | `zrl/check_results.py` | Compares a fresh run with the published means |
+| `zrl/verify.py`, `verify.sh`, `VERIFY.md` | Checks of the published results from the saved intermediate results, without a full rerun |
 | `results/` | Fold-level scores, partition statistics, fold assignments, held-out predictions, logs and hashes from our runs |
 | `REPRODUCIBILITY.md` | Seeds, software versions, hardware, exact attribute definitions, every hyperparameter |
 | `checksums.sha256` | SHA-256 of the data files |
+| `results/MANIFEST.sha256`, `results/DATA.sha256` | SHA-256 of every result file and of the account attribute files |
 
 ## Data
 
-IBM Transactions for Anti-Money Laundering (AML), files `HI-Small_Trans.csv`, `LI-Small_Trans.csv` and `HI-Medium_Trans.csv`, from <https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml>, released by their authors under the Community Data License Agreement. The data are not redistributed here; `reproduce.sh` downloads them.
+IBM Transactions for Anti-Money Laundering (AML), files `HI-Small_Trans.csv`, `LI-Small_Trans.csv` and `HI-Medium_Trans.csv`, from <https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml>, released by their authors under the Community Data License Agreement – Sharing 1.0. The transaction files are not redistributed here; `reproduce.sh` downloads them. The account attributes built from them are attached to the release `verification-data-v1` under the same licence (see `DATA_LICENSE.md`).
 
 ## Licence
 

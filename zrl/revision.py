@@ -14,6 +14,7 @@ Tasks
   temporal <labels_later.parquet>   train on the past, predict accounts first flagged later
   fair <repeats>    two further baselines: k-means forced to equal class sizes (summarised exactly like ZRL), and
                     logistic regression on a cubic-spline expansion of the attributes (nonlinear, no graph)
+  load              load the data and define the helpers, nothing else (used by verify.py)
 
 Splits are those of experiment_scale.py: a stratified 20% ranking set, then stratified five-fold
 cross-validation on the rest; models train on four folds plus the ranking set.
@@ -126,6 +127,26 @@ def summarise(w, labels=None, seed=0):
     return p, np.column_stack([p.profile, p.deviation.astype(np.float32)])
 
 
+def balanced_kmeans(w):
+    """k-means centres, then every account goes to its nearest centre that still has room, visiting
+    (account, centre) pairs from the closest to the farthest, so all classes hold n/K accounts (+1)."""
+    Xw = (X01 * np.sqrt(w)).astype(np.float32)
+    centres = MiniBatchKMeans(K, n_init=3, batch_size=8192, random_state=0).fit(Xw).cluster_centers_.astype(np.float32)
+    dist = (Xw ** 2).sum(1)[:, None] - 2 * Xw @ centres.T + (centres ** 2).sum(1)[None, :]
+    cap = np.full(K, n // K) + (np.arange(K) < n % K)
+    labels = np.full(n, -1, np.int32)
+    left = n
+    for flat in np.argsort(dist, axis=None, kind="stable"):
+        u, c = divmod(int(flat), K)
+        if labels[u] < 0 and cap[c] > 0:
+            labels[u], cap[c], left = c, cap[c] - 1, left - 1
+            if left == 0:
+                break
+    del dist
+    zs.check_memory()
+    return labels
+
+
 def score_partition(rows, name, part, F, target, repeats, extra=None):
     for rep, fold, train, test, _ in folds(target, repeats):
         risk = class_risk(part.labels, target, train, part.k)
@@ -225,23 +246,9 @@ elif task == "fair":
     from sklearn.preprocessing import SplineTransformer
     repeats = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     w_ent = law_weights(ENT_ORDER, "zeta")
-    Xw = (X01 * np.sqrt(w_ent)).astype(np.float32)
-    # Balanced k-means: k-means centres, then every account goes to its nearest centre that still has room,
-    # visiting (account, centre) pairs from the closest to the farthest, so all classes hold n/K accounts (+1).
-    centres = MiniBatchKMeans(K, n_init=3, batch_size=8192, random_state=0).fit(Xw).cluster_centers_.astype(np.float32)
-    dist = (Xw ** 2).sum(1)[:, None] - 2 * Xw @ centres.T + (centres ** 2).sum(1)[None, :]
-    cap = np.full(K, n // K) + (np.arange(K) < n % K)
-    labels = np.full(n, -1, np.int32)
-    left = n
-    for flat in np.argsort(dist, axis=None, kind="stable"):
-        u, c = divmod(int(flat), K)
-        if labels[u] < 0 and cap[c] > 0:
-            labels[u], cap[c], left = c, cap[c] - 1, left - 1
-            if left == 0:
-                break
-    del dist
-    zs.check_memory()
+    labels = balanced_kmeans(w_ent)
     rows, stats, conc = [], [], []
+    np.savez_compressed(out_dir / "fair_partition.npz", balanced_k_means=labels.astype(np.int16))
     part, F = summarise(w_ent, labels)
     score_partition(rows, "balanced k-means partition", part, F, y, repeats)
     rmse, se = rmse_with_error(zs.L1Graph(X01, w_ent, threads=THREADS), part.labels, part.R)
@@ -422,6 +429,7 @@ elif task == "temporal":
     json.dump({"past_accounts": n, "flagged_past": int(y.sum()), "candidates": int(len(candidates)), "flagged_later": int(target.sum()),
                **{"conc_" + k: v for k, v in concentration(part.labels[candidates], target).items()}}, open(out_dir / "temporal_meta.json", "w"))
 
-else:
+elif task != "load":
     sys.exit(f"unknown task {task}")
-print("done", f"{time.time() - t0:.0f}s", flush=True)
+if task != "load":
+    print("done", f"{time.time() - t0:.0f}s", flush=True)

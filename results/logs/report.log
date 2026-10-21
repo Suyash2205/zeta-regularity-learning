@@ -1,0 +1,1 @@
+tables 8 datasets ['hi', 'li', 'hm'] folds {'hi': 15, 'li': 15, 'hm': 5}

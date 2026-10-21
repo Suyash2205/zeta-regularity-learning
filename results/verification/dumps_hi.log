@@ -1,0 +1,79 @@
+attributes hi_accounts.parquet: sha256 05049a9b0c9eb469...
+accounts 515088, attributes 30, laundering 6357 (1.234%), task load
+1. data and splits
+  [ok] accounts: 515088
+  [ok] laundering accounts: 6357
+  [ok] attribute order (entropy): ['nbt_centrality', 'n_out', 'out_partners', 'pagerank_out', 'degree', 'in_partners', 'pagerank_in', 'n_in', 'reciprocity', 'share_bitcoin', 'cross_cur_share', 'n_currencies', 'share_wire', 'partner_degree', 'share_cash', 'repeat_out', 'share_credit_card', 'share_ach', 'share_cheque', 'out_amt_std', 'active_days', 'in_amt_mean', 'share_reinvestment', 'in_amt_std', 'self_share', 'cross_bank_share', 'out_amt_mean', 'out_amt_max', 'night_share', 'out_ratio']
+  [ok] labels identical to the saved ones: True
+  [ok] all 15 test folds identical to folds.npz: True
+  [ok] attribute order (mutual information): ['nbt_centrality', 'degree', 'n_currencies', 'cross_cur_share', 'pagerank_in', 'in_partners', 'share_ach', 'partner_degree', 'n_in', 'cross_bank_share', 'self_share', 'out_ratio', 'in_amt_std', 'share_reinvestment', 'out_partners', 'out_amt_std', 'active_days', 'pagerank_out', 'n_out', 'out_amt_max', 'in_amt_mean', 'repeat_out', 'night_share', 'reciprocity', 'share_credit_card', 'share_cheque', 'out_amt_mean', 'share_cash', 'share_wire', 'share_bitcoin']
+  [ok] zeta weights: 0 vs 0
+2. ZRL-U: summary of the saved partition (4s)
+  [ok] reconstruction error (RMSE): 0.0327657 vs 0.0327657
+  [ok] index: 0.54065 vs 0.54065
+  [ok] share of irregular class pairs (sampled): 0.078869 vs 0.078869
+  [ok] class concentration (8 figures): True
+  [ok] reduced graph R (largest entry difference): 7.40448e-06 vs 0
+  [ok] class sizes: [8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8049, 8048, 8048, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048, 8049, 8048, 8048, 8048]
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 1.93282e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 1.6255e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.000537103 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.000170521 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.00442778 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.000114376 vs 0
+   peak memory so far 1.7 GB
+3. ZRL-MI (label-ranked): summary of the saved partition (110s)
+  [ok] reconstruction error (RMSE): 0.0314137 vs 0.0314135
+  [ok] index: 0.555985 vs 0.555985
+  [ok] share of irregular class pairs (sampled): 0.0600198 vs 0.0600198
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 4.53004e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 9.92009e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.00103211 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.000425403 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.00407988 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.000283289 vs 0
+   peak memory so far 1.7 GB
+4. k-means partition: summary of the saved partition (187s)
+  [ok] reconstruction error (RMSE): 0.0290769 vs 0.0290769
+  [ok] index: 0.540879 vs 0.540879
+  [ok] share of irregular class pairs (sampled): 0.016369 vs 0.016369
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 1.57041e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 5.13198e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.000622047 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: 0.0002399 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.00300375 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.00036908 vs 0
+   peak memory so far 2.1 GB
+5. random partition: summary of the saved partition (253s)
+  [ok] reconstruction error (RMSE): 0.127749 vs 0.127749
+  [ok] index: 0.52541 vs 0.52541
+  [ok] share of irregular class pairs (sampled): 1 vs 1
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 9.18088e-07 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 3.50499e-08 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.00364306 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.00117225 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.0162321 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.00729699 vs 0
+   peak memory so far 2.1 GB
+6. balanced k-means partition: summary of the saved partition (319s)
+  [ok] reconstruction error (RMSE): 0.0681272 vs 0.0681272
+  [ok] index: 0.537086 vs 0.537086
+  [ok] share of irregular class pairs (sampled): 0.40377 vs 0.40377
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 0 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 0 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: 0 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: 0 vs 0
+   peak memory so far 2.1 GB
+7. AUC of the first-round baselines from their saved predictions (repeat 0)
+  [ok] logistic regression (all attributes), largest fold difference (scores stored in half precision): 2.53078e-06 vs 0
+  [ok] gradient boosting (all attributes), largest fold difference (scores stored in half precision): 1.23821e-06 vs 0
+finished in 383s
+
+all checks passed
+peak 2002 MB rc 0

@@ -1,0 +1,64 @@
+attributes hm_accounts.parquet: sha256 a7262e48b71dc73b...
+accounts 2077023, attributes 30, laundering 41857 (2.015%), task load
+1. data and splits
+  [ok] accounts: 2077023
+  [ok] laundering accounts: 41857
+  [ok] attribute order (entropy): ['n_in', 'nbt_centrality', 'in_partners', 'pagerank_out', 'degree', 'n_out', 'out_partners', 'pagerank_in', 'share_bitcoin', 'cross_cur_share', 'reciprocity', 'n_currencies', 'share_wire', 'partner_degree', 'share_cash', 'repeat_out', 'share_credit_card', 'out_amt_std', 'in_amt_std', 'in_amt_mean', 'share_cheque', 'share_ach', 'out_amt_mean', 'share_reinvestment', 'self_share', 'active_days', 'cross_bank_share', 'out_amt_max', 'night_share', 'out_ratio']
+  [ok] labels identical to the saved ones: True
+  [ok] all 5 test folds identical to folds.npz: True
+  [ok] attribute order (mutual information): ['n_currencies', 'cross_cur_share', 'degree', 'nbt_centrality', 'in_partners', 'pagerank_in', 'share_ach', 'n_in', 'self_share', 'in_amt_std', 'out_ratio', 'out_partners', 'cross_bank_share', 'partner_degree', 'share_reinvestment', 'active_days', 'out_amt_std', 'repeat_out', 'pagerank_out', 'in_amt_mean', 'n_out', 'out_amt_max', 'night_share', 'reciprocity', 'share_cheque', 'share_credit_card', 'out_amt_mean', 'share_cash', 'share_wire', 'share_bitcoin']
+  [ok] zeta weights: 0 vs 0
+2. ZRL-U: summary of the saved partition (15s)
+  [ok] reconstruction error (RMSE): 0.0313928 vs 0.0313927
+  [ok] index: 0.531474 vs 0.531474
+  [ok] share of irregular class pairs (sampled): 0.0431548 vs 0.0431548
+  [ok] class concentration (8 figures): True
+  [ok] reduced graph R (largest entry difference): 5.49911e-05 vs 0
+  [ok] class sizes: [32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32458, 32457, 32451, 32449, 32464, 32463, 32444, 32442, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32454, 32454, 32453, 32455, 32452, 32453, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32454, 32453, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32454, 32453, 32453, 32453]
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 1.88584e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 3.15877e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.00106963 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.00015881 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.0128562 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.00283045 vs 0
+   peak memory so far 10.7 GB
+3. ZRL-MI (label-ranked): summary of the saved partition (570s)
+  [ok] reconstruction error (RMSE): 0.0289884 vs 0.0289883
+  [ok] index: 0.647156 vs 0.647156
+  [ok] share of irregular class pairs (sampled): 0.0639881 vs 0.0639881
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 5.20645e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 7.54895e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.000767613 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.00018523 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.0102412 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: 0.0036254 vs 0
+   peak memory so far 10.7 GB
+4. k-means partition: summary of the saved partition (1122s)
+  [ok] reconstruction error (RMSE): 0.0308362 vs 0.0308363
+  [ok] index: 0.53151 vs 0.53151
+  [ok] share of irregular class pairs (sampled): 0.0233135 vs 0.0233135
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 4.5829e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 1.70442e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.000726148 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: 0.000240794 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.00888236 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.00292187 vs 0
+   peak memory so far 10.7 GB
+5. random partition: summary of the saved partition (1673s)
+  [ok] reconstruction error (RMSE): 0.125391 vs 0.12539
+  [ok] index: 0.516751 vs 0.516751
+  [ok] share of irregular class pairs (sampled): 1 vs 1
+  [ok] class concentration (8 figures): True
+  [ok] AUC of 10 fold scores of class risk and deviation, largest difference: 3.96062e-06 vs 0
+  [ok] AP of 10 fold scores of class risk and deviation, largest difference: 3.45002e-07 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, largest difference: 0.0122197 vs 0
+  [ok] AUC of 5 fold scores of the profile classifier, mean difference: -0.00250522 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, largest difference: 0.0164813 vs 0
+  [ok] AP of 5 fold scores of the profile classifier, mean difference: -0.00317019 vs 0
+   peak memory so far 10.7 GB
+finished in 2145s
+
+all checks passed
+ALLDONE

@@ -155,3 +155,11 @@ Near-tied relevance: on HI-Small the five attributes with the highest entropy re
 
 The sweeps over `s`, `q` and `K` and the attribute ablations were not rerun with the label-free ranking; they are reported with the label-ranked weights of the first round.
 
+
+## 10. Checking without a full rerun
+
+`VERIFY.md` describes `./verify.sh`, which checks the published results from the saved partitions, folds and
+reduced graphs in minutes. The balanced k-means partition (`results/results_rev/hi/fair_partition.npz`) was saved
+by rerunning `revision.py fair 3` on the laptop; its result files were byte-identical to the published ones. The
+logistic regression on the profiles stops at its iteration limit in most folds, so its scores differ slightly
+between machines (up to 0.013 in AUC in one fold, 0.004 for a five-fold mean); `VERIFY.md` gives the measurements.

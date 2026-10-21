@@ -1,0 +1,10 @@
+attributes li_accounts.parquet: sha256 8ba4bc9abd4b15c5...
+accounts 705907, attributes 30, laundering 5304 (0.751%), task load
+rebuilt in 282s
+  accounts in the same class as the saved partition: 99.9326% (adjusted Rand index 0.9986)
+  [ok] ZRL-U RMSE: 0.0306532 vs 0.0306512
+  [ok] ZRL-U profile AUC, mean of the five folds of repeat 0: 0.851588 vs 0.855639
+finished in 329s, peak memory 2.1 GB
+
+all checks passed
+peak 2019 MB rc 0

@@ -1,0 +1,68 @@
+where,claim,printed,source,scale
+abstract,AUC of the ZRL-U profile classifier (HI-Small),0.87,datasets/hi/ZRL-U profiles (label-free summary)/auc/0,1
+abstract,AUC of logistic regression (HI-Small),0.86,"datasets/hi/Logistic regression, default settings/auc/0",1
+abstract,AUC of spline logistic regression (HI-Small),0.89,"datasets/hi/Logistic regression, spline-expanded attributes/auc/0",1
+abstract,AUC of tuned gradient boosting (LI-Small),0.92,"datasets/li/Gradient boosting, tuned/auc/0",1
+abstract,AUC of tuned gradient boosting (HI-Small),0.93,"datasets/hi/Gradient boosting, tuned/auc/0",1
+abstract,AUC of GraphSAGE (LI-Small),0.93,datasets/li/GraphSAGE on the transaction graph/auc/0,1
+abstract,AUC of GraphSAGE (HI-Small),0.94,datasets/hi/GraphSAGE on the transaction graph/auc/0,1
+abstract,"RMSE of ZRL-U (HI-Small), ""about 0.03""",0.03,structure/hi/ZRL-U/rmse,1
+abstract,"time-based AUC, lowest (ZRL-U, HI-Small)",0.62,temporal/hi/rows/[method=ZRL-U profiles]/auc,1
+abstract,"time-based AUC, highest (gradient boosting, LI-Small)",0.70,temporal/li/rows/[method=gradient boosting]/auc,1
+results,ZRL-U profile AUC HI-Small,0.868,datasets/hi/ZRL-U profiles (label-free summary)/auc/0,1
+results,ZRL-U profile AUC LI-Small,0.856,datasets/li/ZRL-U profiles (label-free summary)/auc/0,1
+results,ZRL-U profile AUC HI-Medium,0.869,datasets/hm/ZRL-U profiles (label-free summary)/auc/0,1
+results,logistic regression AUC HI-Small,0.863,"datasets/hi/Logistic regression, default settings/auc/0",1
+results,logistic regression AUC LI-Small,0.846,"datasets/li/Logistic regression, default settings/auc/0",1
+results,logistic regression AUC HI-Medium,0.862,"datasets/hm/Logistic regression, default settings/auc/0",1
+results,spline logistic regression AUC HI-Small,0.892,"datasets/hi/Logistic regression, spline-expanded attributes/auc/0",1
+results,spline logistic regression minus ZRL-U (HI-Small),0.025,"paired/hi/Logistic regression, spline-expanded attributes/diff",-1
+results,tuned gradient boosting AUC HI-Small,0.927,"datasets/hi/Gradient boosting, tuned/auc/0",1
+results,tuned gradient boosting AUC LI-Small,0.919,"datasets/li/Gradient boosting, tuned/auc/0",1
+results,tuned gradient boosting AP LI-Small,0.138,"datasets/li/Gradient boosting, tuned/ap/0",1
+results,GraphSAGE AUC HI-Small,0.940,datasets/hi/GraphSAGE on the transaction graph/auc/0,1
+results,GraphSAGE AUC LI-Small,0.926,datasets/li/GraphSAGE on the transaction graph/auc/0,1
+results,GraphSAGE AP LI-Small,0.092,datasets/li/GraphSAGE on the transaction graph/ap/0,1
+results,k-means profile AUC HI-Small,0.870,datasets/hi/Profiles on a $k$-means partition/auc/0,1
+results,k-means profile AUC LI-Small,0.863,datasets/li/Profiles on a $k$-means partition/auc/0,1
+results,k-means profile AUC HI-Medium,0.871,datasets/hm/Profiles on a $k$-means partition/auc/0,1
+results,balanced k-means profile AUC HI-Small,0.867,datasets/hi/Profiles on a balanced $k$-means partition/auc/0,1
+results,p-value ZRL-U against balanced k-means (HI-Small),0.28,paired/hi/Profiles on a balanced $k$-means partition/p,1
+results,random partition profile AUC HI-Small,0.844,datasets/hi/Profiles on a random partition/auc/0,1
+results,random partition profile AUC LI-Small,0.828,datasets/li/Profiles on a random partition/auc/0,1
+results,random partition profile AUC HI-Medium,0.846,datasets/hm/Profiles on a random partition/auc/0,1
+results,RMSE ZRL-U HI-Small,0.0328,structure/hi/ZRL-U/rmse,1
+results,RMSE ZRL-U LI-Small,0.031,structure/li/ZRL-U/rmse,1
+results,RMSE ZRL-U HI-Medium,0.031,structure/hm/ZRL-U/rmse,1
+results,RMSE k-means HI-Small,0.029,structure/hi/k-means partition/rmse,1
+results,RMSE k-means LI-Small,0.029,structure/li/k-means partition/rmse,1
+results,RMSE k-means HI-Medium,0.031,structure/hm/k-means partition/rmse,1
+results,RMSE balanced k-means HI-Small,0.068,structure/hi/balanced k-means partition/rmse,1
+results,irregular pairs balanced k-means HI-Small (%),40,structure/hi/balanced k-means partition/irregular_fraction,100
+results,RMSE random partition HI-Small,0.128,structure/hi/random partition/rmse,1
+results,RMSE random partition LI-Small,0.126,structure/li/random partition/rmse,1
+results,RMSE random partition HI-Medium,0.125,structure/hm/random partition/rmse,1
+results,laundering share in top quarter ZRL-U HI-Small (%),65.0,structure/hi/ZRL-U/share_top25,100
+results,laundering share in top quarter ZRL-U LI-Small (%),64.2,structure/li/ZRL-U/share_top25,100
+results,laundering share in top quarter ZRL-U HI-Medium (%),65.9,structure/hm/ZRL-U/share_top25,100
+results,laundering share in top quarter k-means HI-Small (%),69.8,structure/hi/k-means partition/share_top25,100
+results,laundering share in top quarter k-means LI-Small (%),71.2,structure/li/k-means partition/share_top25,100
+results,laundering share in top quarter k-means HI-Medium (%),71.4,structure/hm/k-means partition/share_top25,100
+results,laundering share in top quarter balanced k-means HI-Small (%),67.7,structure/hi/balanced k-means partition/share_top25,100
+results,largest lift ZRL-U HI-Small,4.1,structure/hi/ZRL-U/max_lift,1
+results,largest lift balanced k-means HI-Small,7.2,structure/hi/balanced k-means partition/max_lift,1
+results,largest lift k-means HI-Small,9.2,structure/hi/k-means partition/max_lift,1
+results,"RMSE over five seeds, lowest",0.0319,seeds/rmse/min,1
+results,"RMSE over five seeds, highest",0.0328,seeds/rmse/max,1
+results,time-based AUC ZRL-U HI-Small,0.623,temporal/hi/rows/[method=ZRL-U profiles]/auc,1
+results,time-based AUC logistic regression HI-Small,0.623,temporal/hi/rows/[method=logistic regression]/auc,1
+results,time-based AUC gradient boosting HI-Small,0.649,temporal/hi/rows/[method=gradient boosting]/auc,1
+results,time-based AUC ZRL-U LI-Small,0.665,temporal/li/rows/[method=ZRL-U profiles]/auc,1
+results,time-based AUC logistic regression LI-Small,0.658,temporal/li/rows/[method=logistic regression]/auc,1
+results,time-based AUC gradient boosting LI-Small,0.696,temporal/li/rows/[method=gradient boosting]/auc,1
+results,ZRL-U profile AUC under the strict label,0.968,strict/rows/[method=ZRL-U/profile_logit]/auc,1
+results,shared-weight AUC (near-tied attributes),0.867,ties/rows/[order=shared weight]/profile_auc,1
+results,seconds for one fit on 2.08 million accounts,473,scalability/[n=2077023]/fit_seconds,1
+results,seconds of refinement on 2.08 million accounts,342,scalability/[n=2077023]/refine_seconds,1
+results,seconds of exact summary on 2.08 million accounts,119,scalability/[n=2077023]/summary_seconds,1
+results,peak memory on 2.08 million accounts (GB),16.9,scalability/[n=2077023]/peak_rss_gb,1

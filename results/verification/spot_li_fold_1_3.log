@@ -1,0 +1,8 @@
+attributes li_accounts.parquet: sha256 8ba4bc9abd4b15c5...
+accounts 705907, attributes 30, laundering 5304 (0.751%), task load
+  [ok] logistic regression, default settings: 0.8407 vs 0.840699
+  [ok] gradient boosting, default settings: 0.909531 vs 0.910737
+finished in 7s, peak memory 1.5 GB
+
+all checks passed
+peak 1476 MB rc 0

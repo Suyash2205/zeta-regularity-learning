@@ -1,0 +1,11 @@
+attributes hi_accounts.parquet: sha256 05049a9b0c9eb469...
+accounts 515088, attributes 30, laundering 6357 (1.234%), task load
+  [ok] logistic regression, default settings: 0.861857 vs 0.861857
+  [ok] gradient boosting, default settings: 0.920304 vs 0.920304
+  [ok] gradient boosting, tuned settings: 0.924424 vs 0.924978
+  [ok] logistic regression, tuned C: 0.861769 vs 0.861769
+  [ok] logistic regression, spline-expanded attributes: 0.890775 vs 0.890775
+finished in 31s, peak memory 1.7 GB
+
+all checks passed
+peak 1297 MB rc 0

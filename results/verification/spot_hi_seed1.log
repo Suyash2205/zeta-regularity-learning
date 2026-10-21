@@ -1,0 +1,10 @@
+attributes hi_accounts.parquet: sha256 05049a9b0c9eb469...
+accounts 515088, attributes 30, laundering 6357 (1.234%), task load
+rebuilt in 173s
+  [ok] seed 1 RMSE: 0.0319868 vs 0.0319865
+  [ok] seed 1 profile AUC (five folds): 0.865674 vs 0.865659
+  [ok] seed 1 laundering share in the top quarter: 0.6437 vs 0.6437
+finished in 204s, peak memory 2.0 GB
+
+all checks passed
+peak 1826 MB rc 0
